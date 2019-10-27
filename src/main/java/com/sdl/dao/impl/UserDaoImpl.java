@@ -1,0 +1,164 @@
+package com.sdl.dao.impl;
+import com.sdl.dao.UserDao;
+import com.sdl.entity.SUserInfo;
+import com.sdl.entity.User;
+import com.sdl.entity.UserInfo;
+import com.sdl.util.DBUtil;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+public class UserDaoImpl implements UserDao {
+    List<SUserInfo> infoList = new ArrayList<SUserInfo>();
+    Connection connection = null;
+    PreparedStatement preparedStatement = null;
+    ResultSet rs = null;
+    boolean a;
+    @Override
+    public User findUser(String userName, String userPassWord) {
+        try {
+            connection = DBUtil.getConnection();
+            String sql = "select * from t_user where username = ? and userpassword = ?";
+            System.out.println(sql);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, userName);
+            preparedStatement.setString(2, userPassWord);
+            rs = preparedStatement.executeQuery();
+            if(rs.next()){
+                Integer userId = rs.getInt("userid");
+                String userType = rs.getString("usertype");
+                User user = new User(userId,userType,userName,userPassWord);
+                return user;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            System.out.println("close");
+            DBUtil.close(rs,preparedStatement,connection);
+        }
+        return null;
+    }
+
+    @Override
+    public UserInfo findUserInfo(int userId) {
+        try {
+            connection = DBUtil.getConnection();
+            String sql = "select * from t_userinfo where userid = ? ";
+            System.out.println(sql);
+            System.out.println(userId);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, userId);
+            rs = preparedStatement.executeQuery();
+            if(rs.next()){
+                Integer infoId =rs.getInt("infoid");
+                String userSex = rs.getString("usersex");
+                String userTel = rs.getString("usertel");
+                String userQQ = rs.getString("userqq");
+                String userNote = rs.getString("usernote");
+                UserInfo userInfo = new UserInfo(infoId,userSex,userTel,userQQ,userNote);
+                return userInfo;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(rs,preparedStatement,connection);
+        }
+        return null;
+    }
+
+    @Override
+    public boolean updateUserInfo(String userSex, String userTel, String userQQ, String userNote, int userId) {
+        try {
+            connection = DBUtil.getConnection();
+            String sql = "update t_userinfo set usersex = ?,usertel = ?,userqq = ?,usernote = ? where userid = ? ";
+            System.out.println(sql);
+            System.out.println(userId);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, userSex);
+            preparedStatement.setString(2, userTel);
+            preparedStatement.setString(3, userQQ);
+            preparedStatement.setString(4, userNote);
+            preparedStatement.setInt(5, userId);
+            a = preparedStatement.execute();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(rs,preparedStatement,connection);
+        }
+        return a;
+    }
+
+    @Override
+    public boolean updateUserPassword(int userId,String userName,String userPassword) {
+        try {
+            connection = DBUtil.getConnection();
+            String sql = "update t_user set username = ?,userpassword = ? where userid = ? ";
+            System.out.println(sql);
+            System.out.println(userId);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, userName);
+            preparedStatement.setString(2, userPassword);
+            preparedStatement.setInt(3, userId);
+            a = preparedStatement.execute();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(rs,preparedStatement,connection);
+        }
+        return a;
+    }
+
+    @Override
+    public List<SUserInfo> findAllUserInfo(String userType) {
+        try {
+
+            connection = DBUtil.getConnection();
+            String sql = "select t.userid,usertype,username,usersex,usertel,userqq from t_user as s,t_userinfo as t where s.userid = t.userid and usertype= ?";
+            System.out.println(sql);
+            System.out.println(userType);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, userType);
+            rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                int cout = 0;
+                int auserId = rs.getInt("userid");
+                String auserType = rs.getString("usertype");
+                String ausername = rs.getString("username");
+                String ausersex = rs.getString("usersex");
+                String ausertel = rs.getString("usertel");
+                String auserqq = rs.getString("userqq");
+                SUserInfo sUserInfo = new SUserInfo(auserId,auserType,ausername,ausersex,ausertel,auserqq);
+                System.out.println(sUserInfo);
+                infoList.add(sUserInfo);
+            }
+            return infoList;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(rs,preparedStatement,connection);
+        }
+        return null;
+    }
+
+    @Override
+    public boolean delUser(int userId) {
+        try {
+            connection = DBUtil.getConnection();
+            String sql = "DELETE from t_user WHERE userid = ?";
+            System.out.println(sql);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, userId);
+            a = preparedStatement.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(rs,preparedStatement,connection);
+        }
+        return a;
+    }
+}
+
