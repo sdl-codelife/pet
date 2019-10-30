@@ -35,8 +35,9 @@ To change this template use File | Settings | File Templates.
             <li class="layui-nav-item layui-nav-itemed">
                 <a href="javascript:;"><i class="iconfont">&#xe607;</i>管理员功能</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="javascript:;" data-url="menu1.html" data-id='1' data-text="增加管理员"><span class="l-line"></span>增加管理员</a></dd>
-                    <dd><a href="userlist.action?user.userType=admin" target="iframe" data-text="查看管理员"><span class="l-line"></span>查看管理员</a></dd>
+                    <dd><a href="admin/addUser.jsp" target="iframe"><span class="l-line"></span>增加管理员</a></dd>
+                    <dd><a href="userlist.action?user.userType=admin&pageUtil.pageNo=1" target="iframe"
+                           data-text="查看管理员"><span class="l-line"></span>查看管理员</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item">
@@ -84,7 +85,7 @@ To change this template use File | Settings | File Templates.
             <!--tab 切换-->
             <div class="layui-tab layui-tab-brief main-layout-tab" lay-filter="tab" lay-allowClose="true">
                 <ul class="layui-tab-title">
-                    <li class="layui-this welcome">用户列表</li>
+                    <li class="layui-this welcome">管理员功能</li>
                 </ul>
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show" style="background: #f5f5f5;">

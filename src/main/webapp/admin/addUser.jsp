@@ -1,11 +1,11 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%@ page import="com.sdl.entity.UserInfo" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>网站后台管理模版</title>
     <link rel="stylesheet" type="text/css" href="static/admin/layui/css/layui.css"/>
     <link rel="stylesheet" type="text/css" href="static/admin/css/admin.css"/>
@@ -27,13 +28,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </ul>
     <div class="layui-tab-content">
         <div class="layui-tab-item layui-show">
-            <form class="layui-form" action="updateUserInfo.action?userId=${userId}" method="post"
-                  style="width: 90%;padding-top: 20px;">
+            <form class="layui-form" action="addUser.action" method="post" style="width: 90%;padding-top: 20px;">
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户类型：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="user.userType" disabled autocomplete="off"
-                               class="layui-input layui-disabled" value="admin">
+                        <input type="text" name="user.userType" class="layui-input layui-disabled" value="admin">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户ID：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="user.userId" required lay-verify="required" placeholder="请输入ID"
+                               autocomplete="off" class="layui-input ">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -46,8 +52,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="layui-form-item">
                     <label class="layui-form-label">密码：</label>
                     <div class="layui-input-block">
-                        <input type="password" name="Password" required lay-verify="required" placeholder="请输入密码"
-                               autocomplete="off" class="layui-input">
+                        <input type="password" name="user.userPassword" required lay-verify="required"
+                               placeholder="请输入密码" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">

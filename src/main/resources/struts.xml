@@ -32,5 +32,9 @@
             <result name="success">/admin/userlist.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
+        <action name="addUser" class="com.sdl.action.UserAction" method="addUser">
+            <result name="success">/admin/userlist.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
     </package>
 </struts>

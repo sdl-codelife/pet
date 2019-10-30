@@ -10,8 +10,6 @@ import java.util.List;
 public class Test {
     @org.junit.jupiter.api.Test
     void testlogin(){
-        UserService userService = new UserServiceImpl();
-        boolean S= userService.delUser(1003);
-        System.out.println(S);
+
     }
 }

@@ -13,4 +13,8 @@ public interface UserService {
     public boolean updateUserPassword(int userId,String userName,String userPassword);
     public List<SUserInfo> findAllUserInfo(String userType);
     public boolean delUser(int userId);
+
+    public boolean addUser(User user);
+
+    public boolean addUserInfo(int userId, UserInfo userInfo);
 }

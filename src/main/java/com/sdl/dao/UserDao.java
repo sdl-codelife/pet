@@ -54,4 +54,20 @@ public interface UserDao {
      * @return
      */
     public boolean delUser(int userId);
+
+    /**
+     * 添加用户
+     *
+     * @param user
+     * @return
+     */
+    public boolean addUser(User user);
+
+    /**
+     * 根据用户id添加用户信息
+     *
+     * @param userInfo
+     * @return
+     */
+    public boolean addUserInfo(int userId, UserInfo userInfo);
 }

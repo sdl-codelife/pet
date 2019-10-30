@@ -76,7 +76,9 @@
                     <td>
                         <div class="layui-inline">
                             <a href="userinfo.action?userId=${info.userId}&userName=${info.userName}" class="layui-btn layui-btn-small layui-btn-normal go-btn"><i class="layui-icon">&#xe642;</i></a>
-                            <a href="delUser.action?user.userId=${info.userId}&user.userType=${info.userType}" class="layui-btn layui-btn-small layui-btn-normal del-btn"><i class="layui-icon">&#xe640;</i></a>
+                            <a href="delUser.action?user.userId=${info.userId}&user.userType=${info.userType}&pageUtil.pageNo=1"
+                               class="layui-btn layui-btn-small layui-btn-normal del-btn"><i
+                                    class="layui-icon">&#xe640;</i></a>
 
                         </div>
                     </td>
@@ -86,14 +88,12 @@
             </table>
             <div class="page-wrap">
                 <ul class="pagination">
-                    <li class="disabled"><span>«</span></li>
-                    <li class="active"><span>1</span></li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">»</a>
-                    </li>
+                    <li><a href="userlist.action?user.userType=admin&pageUtil.pageNo=${pageUtil.pageNo-1}">«</a></li>
+                    <li class="active"><span>${pageUtil.pageNo}</span></li>
+                    <li><a href="userlist.action?user.userType=admin&pageUtil.pageNo=${pageUtil.pageNo+1}">»</a></li>
+                </ul>
+                <ul>
+                    <li><a>共${pageUtil.totalPage}页</a></li>
                 </ul>
             </div>
         </div>

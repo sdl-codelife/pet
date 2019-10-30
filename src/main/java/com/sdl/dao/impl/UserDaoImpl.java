@@ -160,5 +160,46 @@ public class UserDaoImpl implements UserDao {
         }
         return a;
     }
+
+    @Override
+    public boolean addUser(User user) {
+        try {
+            connection = DBUtil.getConnection();
+            String sql = "INSERT t_user (userid,usertype,username,userpassword) VALUES(?,?,?,?)";
+            System.out.println(sql);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, user.getUserId());
+            preparedStatement.setString(2, user.getUserType());
+            preparedStatement.setString(3, user.getUserName());
+            preparedStatement.setString(4, user.getUserPassword());
+            a = preparedStatement.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(rs, preparedStatement, connection);
+        }
+        return a;
+    }
+
+    @Override
+    public boolean addUserInfo(int userId, UserInfo userInfo) {
+        try {
+            connection = DBUtil.getConnection();
+            String sql = "INSERT t_userinfo (usersex,usertel,userqq,usernote,userid) VALUES(?,?,?,?,?)";
+            System.out.println(sql);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, userInfo.getUserSex());
+            preparedStatement.setString(2, userInfo.getUserTel());
+            preparedStatement.setString(3, userInfo.getUserQQ());
+            preparedStatement.setString(4, userInfo.getUserNote());
+            preparedStatement.setInt(5, userId);
+            a = preparedStatement.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(rs, preparedStatement, connection);
+        }
+        return a;
+    }
 }
 
