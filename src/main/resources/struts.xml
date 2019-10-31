@@ -47,7 +47,7 @@
 
     <package name="pet" extends="struts-default">
         <action name="toaddPet" class="com.sdl.action.UserAction" method="toaddPet">
-            <result name="success">/admin/userlist.jsp</result>
+            <result name="success">/user/addPet.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
     </package>
