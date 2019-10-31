@@ -37,8 +37,9 @@ To change this template use File | Settings | File Templates.
             <li class="layui-nav-item">
                 <a href="javascript:;"><i class="iconfont">&#xe608;</i>宠物管理</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="userlist.action" target="iframe"><span class="l-line"></span>查看我的宠物</a></dd>
-                    <dd><a href="javascript:;" target="iframe"><span class="l-line"></span>添加我的宠物</a></dd>
+                    <dd><a href="toaddpet.action?user.userId=${user.userId}" target="iframe"><span
+                            class="l-line"></span>添加我的宠物</a></dd>
+                    <dd><a href="javascript:;" target="iframe"><span class="l-line"></span>查看的宠物</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item">

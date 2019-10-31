@@ -6,40 +6,47 @@
 <struts>
     <constant name="struts.action.excludePattern" value="/static/.*?" />
     <package name="sdl"  extends="struts-default">
-        <action name="login" class="com.sdl.action.UserAction" method="login">
+        <action name="login" class="com.sdl.action.AdminAction" method="login">
             <result name="admin">/admin/adminhome.jsp</result>
             <result name="user">/user/userhome.jsp</result>
             <result name="doctor">/doctor/doctor.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
-        <action name="logout" class="com.sdl.action.UserAction" method="logout">
+        <action name="logout" class="com.sdl.action.AdminAction" method="logout">
             <result name="success">/login.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
-        <action name="userinfo" class="com.sdl.action.UserAction" method="userinfo">
+        <action name="userinfo" class="com.sdl.action.AdminAction" method="userinfo">
             <result name="success">/admin/admin_info.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
-        <action name="updateUserInfo" class="com.sdl.action.UserAction" method="updateUserInfo">
+        <action name="updateUserInfo" class="com.sdl.action.AdminAction" method="updateUserInfo">
             <result name="success">/admin/admin_info.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
-        <action name="updateUserPassword" class="com.sdl.action.UserAction" method="updateUserPassword">
+        <action name="updateUserPassword" class="com.sdl.action.AdminAction" method="updateUserPassword">
             <result name="success">/admin/admin_info.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
-        <action name="userlist" class="com.sdl.action.UserAction" method="userlist">
+        <action name="userlist" class="com.sdl.action.AdminAction" method="userlist">
             <result name="success">/admin/userlist.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
-        <action name="delUser" class="com.sdl.action.UserAction" method="delUser">
+        <action name="delUser" class="com.sdl.action.AdminAction" method="delUser">
             <result name="success">/admin/userlist.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
-        <action name="toaddUser" class="com.sdl.action.UserAction" method="toaddUser">
+        <action name="toaddUser" class="com.sdl.action.AdminAction" method="toaddUser">
             <result name="success">/admin/addUser.jsp</result>
         </action>
-        <action name="addUser" class="com.sdl.action.UserAction" method="addUser">
+        <action name="addUser" class="com.sdl.action.AdminAction" method="addUser">
+            <result name="success">/admin/userlist.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
+    </package>
+
+    <package name="pet" extends="struts-default">
+        <action name="toaddPet" class="com.sdl.action.UserAction" method="toaddPet">
             <result name="success">/admin/userlist.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
