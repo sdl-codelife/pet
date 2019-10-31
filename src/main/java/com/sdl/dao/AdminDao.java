@@ -1,12 +1,10 @@
 package com.sdl.dao;
-
 import com.sdl.entity.SUserInfo;
 import com.sdl.entity.User;
 import com.sdl.entity.UserInfo;
-
 import java.util.List;
 
-public interface UserDao {
+public interface AdminDao {
     /**
      * 查找用户
      * @param userName

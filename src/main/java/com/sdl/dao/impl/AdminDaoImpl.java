@@ -1,5 +1,6 @@
 package com.sdl.dao.impl;
-import com.sdl.dao.UserDao;
+
+import com.sdl.dao.AdminDao;
 import com.sdl.entity.SUserInfo;
 import com.sdl.entity.User;
 import com.sdl.entity.UserInfo;
@@ -10,7 +11,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDaoImpl implements UserDao {
+public class AdminDaoImpl implements AdminDao {
     List<SUserInfo> infoList = new ArrayList<SUserInfo>();
     Connection connection = null;
     PreparedStatement preparedStatement = null;

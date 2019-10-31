@@ -1,54 +1,56 @@
 package com.sdl.service.impl;
 
-import com.sdl.dao.UserDao;
-import com.sdl.dao.impl.UserDaoImpl;
+import com.sdl.dao.AdminDao;
+import com.sdl.dao.impl.AdminDaoImpl;
 import com.sdl.entity.SUserInfo;
 import com.sdl.entity.User;
 import com.sdl.entity.UserInfo;
-import com.sdl.service.UserService;
+import com.sdl.service.AdminService;
+
 
 import java.util.List;
 
-public class UserServiceImpl implements UserService {
-    UserDao userDao = new UserDaoImpl();
+public class AdminServiceImpl implements AdminService {
+    AdminDao adminDao = new AdminDaoImpl();
 
     @Override
+
     public User findUser(String userName, String userPassword) {
-        return userDao.findUser(userName, userPassword);
+        return adminDao.findUser(userName, userPassword);
     }
 
     @Override
     public UserInfo findUserInfo(int userId) {
-        return userDao.findUserInfo(userId);
+        return adminDao.findUserInfo(userId);
     }
 
     @Override
     public boolean updateUserInfo(String userSex, String userTel, String userQQ, String userNote, int userId) {
-        return userDao.updateUserInfo(userSex, userTel, userQQ, userNote, userId);
+        return adminDao.updateUserInfo(userSex, userTel, userQQ, userNote, userId);
     }
 
     @Override
     public boolean updateUserPassword(int userId, String userName, String userPassword) {
-        return userDao.updateUserPassword(userId,userName,userPassword);
+        return adminDao.updateUserPassword(userId, userName, userPassword);
     }
 
     @Override
     public List<SUserInfo> findAllUserInfo(String userType) {
-        return userDao.findAllUserInfo(userType);
+        return adminDao.findAllUserInfo(userType);
     }
 
     @Override
     public boolean delUser(int userId) {
-        return userDao.delUser(userId);
+        return adminDao.delUser(userId);
     }
 
     @Override
     public boolean addUser(User user) {
-        return userDao.addUser(user);
+        return adminDao.addUser(user);
     }
 
     @Override
     public boolean addUserInfo(int userId, UserInfo userInfo) {
-        return userDao.addUserInfo(userId, userInfo);
+        return adminDao.addUserInfo(userId, userInfo);
     }
 }

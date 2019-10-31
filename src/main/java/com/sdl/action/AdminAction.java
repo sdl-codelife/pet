@@ -4,8 +4,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.sdl.entity.SUserInfo;
 import com.sdl.entity.User;
 import com.sdl.entity.UserInfo;
-import com.sdl.service.UserService;
-import com.sdl.service.impl.UserServiceImpl;
+import com.sdl.service.AdminService;
+import com.sdl.service.impl.AdminServiceImpl;
 import com.sdl.util.PageUtil;
 
 import java.util.List;
@@ -68,8 +68,8 @@ public class AdminAction extends ActionSupport {
 
     //    登录
     public String login() {
-        UserService userService = new UserServiceImpl();
-        user = userService.findUser(user.getUserName(), user.getUserPassword());
+        AdminService adminService = new AdminServiceImpl();
+        user = adminService.findUser(user.getUserName(), user.getUserPassword());
         System.out.println(user);
         if (user != null) {
             return user.getUserType();
@@ -80,38 +80,38 @@ public class AdminAction extends ActionSupport {
 
     //    根据Id查看用户信息
     public String userinfo() {
-        UserService userService = new UserServiceImpl();
+        AdminService adminService = new AdminServiceImpl();
         System.out.println(userId);
         System.out.println(userName);
-        userInfo = userService.findUserInfo(userId);
+        userInfo = adminService.findUserInfo(userId);
         System.out.println(userInfo);
         return "success";
     }
 
     //    更新用户信息
     public String updateUserInfo() {
-        UserService userService = new UserServiceImpl();
-        boolean a = userService.updateUserInfo(userInfo.getUserSex(), userInfo.getUserTel(), userInfo.getUserQQ(), userInfo.getUserNote(), userId);
+        AdminService adminService = new AdminServiceImpl();
+        boolean a = adminService.updateUserInfo(userInfo.getUserSex(), userInfo.getUserTel(), userInfo.getUserQQ(), userInfo.getUserNote(), userId);
         System.out.println(userId);
         System.out.println(userInfo);
-        userInfo = userService.findUserInfo(userId);
+        userInfo = adminService.findUserInfo(userId);
         return "success";
     }
 
     //    更改用户密码
     public String updateUserPassword() {
-        UserService userService = new UserServiceImpl();
-        boolean a = userService.updateUserPassword(userId, user.getUserName(), user.getUserPassword());
+        AdminService adminService = new AdminServiceImpl();
+        boolean a = adminService.updateUserPassword(userId, user.getUserName(), user.getUserPassword());
         System.out.println(userId);
         System.out.println(user.getUserName());
-        userInfo = userService.findUserInfo(userId);
+        userInfo = adminService.findUserInfo(userId);
         return "success";
     }
 
     //    查看某类型的全部用户
     public String userlist() {
-        UserService userService = new UserServiceImpl();
-        infoList = pageUtil.setList(userService.findAllUserInfo(user.getUserType()), pageUtil.getPageNo());
+        AdminService adminService = new AdminServiceImpl();
+        infoList = pageUtil.setList(adminService.findAllUserInfo(user.getUserType()), pageUtil.getPageNo());
         System.out.println(pageUtil.getPageNo());
         System.out.println(infoList);
         System.out.println(infoList.size());
@@ -120,19 +120,19 @@ public class AdminAction extends ActionSupport {
 
     //    根据id删除用户
     public String delUser() {
-        UserService userService = new UserServiceImpl();
-        userService.delUser(user.getUserId());
-        infoList = pageUtil.setList(userService.findAllUserInfo(user.getUserType()), pageUtil.getPageNo());
+        AdminService adminService = new AdminServiceImpl();
+        adminService.delUser(user.getUserId());
+        infoList = pageUtil.setList(adminService.findAllUserInfo(user.getUserType()), pageUtil.getPageNo());
         return "success";
     }
 
     //    添加用户
     public String addUser() {
-        UserService userService = new UserServiceImpl();
+        AdminService adminService = new AdminServiceImpl();
         System.out.println(user);
         System.out.println(userInfo);
-        userService.addUser(user);
-        userService.addUserInfo(user.getUserId(), userInfo);
+        adminService.addUser(user);
+        adminService.addUserInfo(user.getUserId(), userInfo);
         System.out.println(user.getUserType() + "啦啦啦啦啦啦啦啦");
         return "success";
 
