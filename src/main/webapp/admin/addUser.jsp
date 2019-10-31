@@ -32,7 +32,8 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户类型：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="user.userType" class="layui-input layui-disabled" value="admin">
+                        <input type="text" name="user.userType" class="layui-input layui-disabled"
+                               value="${user.userType}">
                     </div>
                 </div>
                 <div class="layui-form-item">

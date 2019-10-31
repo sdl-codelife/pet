@@ -15,7 +15,6 @@ public class UserAction extends ActionSupport {
     String userName;
     List<SUserInfo> infoList;
     PageUtil pageUtil;
-
     public PageUtil getPageUtil() {
         return pageUtil;
     }
@@ -68,7 +67,7 @@ public class UserAction extends ActionSupport {
         user = userService.findUser(user.getUserName(),user.getUserPassword());
         System.out.println(user);
         if (user!=null){
-            return "success";
+            return user.getUserType();
         }else{
             return "fail";
         }
@@ -120,6 +119,19 @@ public class UserAction extends ActionSupport {
         userService.addUser(user);
         userService.addUserInfo(user.getUserId(), userInfo);
         System.out.println(user.getUserType() + "啦啦啦啦啦啦啦啦");
+        return "success";
+
+    }
+
+    public String toaddUser() {
+        System.out.println(user.getUserType());
+        return "success";
+
+    }
+
+    public String logout() {
+        System.out.println(user);
+        user = null;
         return "success";
     }
 }
