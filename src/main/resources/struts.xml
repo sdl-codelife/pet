@@ -54,5 +54,13 @@
             <result name="success">/user/addPet.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
+        <action name="petList" class="com.sdl.action.UserAction" method="petList">
+            <result name="success">/user/petlist.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
+        <action name="delPet" class="com.sdl.action.UserAction" method="delPet">
+            <result name="success">/user/petlist.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
     </package>
 </struts>

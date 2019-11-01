@@ -9,6 +9,21 @@ public class Pet {
     String petWeight;
     int userId;
 
+    public Pet() {
+    }
+
+    ;
+
+    public Pet(int petId, String petName, String petBreed, String petSex, String petAge, String petWeight, int userId) {
+        this.petId = petId;
+        this.petName = petName;
+        this.petBreed = petBreed;
+        this.petSex = petSex;
+        this.petAge = petAge;
+        this.petWeight = petWeight;
+        this.userId = userId;
+    }
+
     public int getPetId() {
         return petId;
     }
