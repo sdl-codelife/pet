@@ -28,39 +28,40 @@
     </ul>
     <div class="layui-tab-content">
         <div class="layui-tab-item layui-show">
-            <form class="layui-form" action="addPet.action" method="post" style="width: 90%;padding-top: 20px;">
+            <form class="layui-form" action="addPet.action?pet.userId=${user.userId}" method="post"
+                  style="width: 90%;padding-top: 20px;">
                 <div class="layui-form-item">
                     <label class="layui-form-label">宠物姓名：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="user.userName" required lay-verify="required" placeholder="请输入宠物姓名"
+                        <input type="text" name="pet.petName" required lay-verify="required" placeholder="请输入宠物姓名"
                                autocomplete="off" class="layui-input ">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">宠物种类：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="user.userName" required lay-verify="required" placeholder="请输入宠物种类"
+                        <input type="text" name="pet.petBreed" required lay-verify="required" placeholder="请输入宠物种类"
                                autocomplete="off" class="layui-input ">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">宠物性别：</label>
                     <div class="layui-input-block">
-                        <input type="radio" name="userInfo.userSex" value="公" title="公" checked="">
-                        <input type="radio" name="userInfo.userSex" value="母" title="母">
+                        <input type="radio" name="pet.petSex" value="公" title="公" checked="">
+                        <input type="radio" name="pet.petSex" value="母" title="母">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">宠物年龄：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="user.userName" required lay-verify="required" placeholder="请输入宠物年龄"
+                        <input type="text" name="pet.petAge" required lay-verify="required" placeholder="请输入宠物年龄"
                                autocomplete="off" class="layui-input ">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">宠物体重：</label>
                     <div class="layui-input-block">
-                        <input type="password" name="user.userPassword" required lay-verify="required"
+                        <input type="text" name="pet.petWeight" required lay-verify="required"
                                placeholder="请输入体重" autocomplete="off" class="layui-input">
                     </div>
                 </div>

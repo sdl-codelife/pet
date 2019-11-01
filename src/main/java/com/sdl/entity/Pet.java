@@ -3,10 +3,10 @@ package com.sdl.entity;
 public class Pet {
     int petId;
     String petName;
-    String petbreed;
+    String petBreed;
     String petSex;
     String petAge;
-    String petweight;
+    String petWeight;
     int userId;
 
     public int getPetId() {
@@ -25,12 +25,12 @@ public class Pet {
         this.petName = petName;
     }
 
-    public String getPetbreed() {
-        return petbreed;
+    public String getPetBreed() {
+        return petBreed;
     }
 
-    public void setPetbreed(String petbreed) {
-        this.petbreed = petbreed;
+    public void setPetBreed(String petBreed) {
+        this.petBreed = petBreed;
     }
 
     public String getPetSex() {
@@ -49,12 +49,12 @@ public class Pet {
         this.petAge = petAge;
     }
 
-    public String getPetweight() {
-        return petweight;
+    public String getPetWeight() {
+        return petWeight;
     }
 
-    public void setPetweight(String petweight) {
-        this.petweight = petweight;
+    public void setPetWeight(String petWeight) {
+        this.petWeight = petWeight;
     }
 
     public int getUserId() {
@@ -70,10 +70,10 @@ public class Pet {
         return "Pet{" +
                 "petId=" + petId +
                 ", petName='" + petName + '\'' +
-                ", petbreed='" + petbreed + '\'' +
+                ", petBreed='" + petBreed + '\'' +
                 ", petSex='" + petSex + '\'' +
                 ", petAge='" + petAge + '\'' +
-                ", petweight='" + petweight + '\'' +
+                ", petWeight='" + petWeight + '\'' +
                 ", userId=" + userId +
                 '}';
     }

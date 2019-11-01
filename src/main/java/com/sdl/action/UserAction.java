@@ -3,6 +3,8 @@ package com.sdl.action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sdl.entity.Pet;
 import com.sdl.entity.User;
+import com.sdl.service.UserService;
+import com.sdl.service.impl.UserServiceImpl;
 
 public class UserAction extends ActionSupport {
     Pet pet;
@@ -26,6 +28,13 @@ public class UserAction extends ActionSupport {
 
     public String toaddPet() {
         System.out.println(user.getUserId());
+        return "success";
+    }
+
+    public String addPet() {
+        UserService userService = new UserServiceImpl();
+        System.out.println(pet);
+        userService.addPet(pet);
         return "success";
     }
 }

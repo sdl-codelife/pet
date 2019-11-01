@@ -50,5 +50,9 @@
             <result name="success">/user/addPet.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
+        <action name="addPet" class="com.sdl.action.UserAction" method="addPet">
+            <result name="success">/user/addPet.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
     </package>
 </struts>
