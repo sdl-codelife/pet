@@ -62,5 +62,21 @@
             <result name="success">/user/petlist.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
+        <action name="toupdatePet" class="com.sdl.action.UserAction" method="toupdatePet">
+            <result name="success">/user/updatePetinfo.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
+        <action name="updatePet" class="com.sdl.action.UserAction" method="updatePet">
+            <result name="success">/user/petlist.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
+        <action name="todescriptForm" class="com.sdl.action.UserAction" method="todescriptForm">
+            <result name="success">/user/descriptForm.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
+        <action name="descriptForm" class="com.sdl.action.UserAction" method="descriptForm">
+            <result name="success">/user/descriptForm.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
     </package>
 </struts>

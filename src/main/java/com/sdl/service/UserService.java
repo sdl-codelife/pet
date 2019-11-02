@@ -10,4 +10,6 @@ public interface UserService {
     public List<Pet> petList(int userId);
 
     public boolean delPet(int petId);
+
+    public boolean updatePet(Pet pet);
 }

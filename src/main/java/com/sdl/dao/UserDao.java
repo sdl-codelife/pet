@@ -27,4 +27,12 @@ public interface UserDao {
      * @return
      */
     public boolean delPet(int petId);
+
+    /**
+     * 更新宠物信息
+     *
+     * @param pet
+     * @return
+     */
+    public boolean updatePet(Pet pet);
 }

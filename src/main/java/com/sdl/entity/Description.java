@@ -1,0 +1,77 @@
+package com.sdl.entity;
+
+public class Description {
+    int dId;
+    String date;
+    String petName;
+    String description;
+    String result;
+    int resoved;
+    int petId;
+    int userId;
+
+    public int getdId() {
+        return dId;
+    }
+
+    public void setdId(int dId) {
+        this.dId = dId;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getPetName() {
+        return petName;
+    }
+
+    public void setPetName(String petName) {
+        this.petName = petName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public int getResoved() {
+        return resoved;
+    }
+
+    public void setResoved(int resoved) {
+        this.resoved = resoved;
+    }
+
+    public int getPetId() {
+        return petId;
+    }
+
+    public void setPetId(int petId) {
+        this.petId = petId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+}

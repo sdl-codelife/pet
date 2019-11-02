@@ -85,4 +85,26 @@ public class UserDaoImpl implements UserDao {
         }
         return a;
     }
+
+    @Override
+    public boolean updatePet(Pet pet) {
+        try {
+            connection = DBUtil.getConnection();
+            String sql = "update t_pet set petname = ?,petbreed = ?,petsex = ?,petage = ?,petweight =?  where petid = ? ";
+            System.out.println(sql);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, pet.getPetName());
+            preparedStatement.setString(2, pet.getPetBreed());
+            preparedStatement.setString(3, pet.getPetSex());
+            preparedStatement.setString(4, pet.getPetAge());
+            preparedStatement.setString(5, pet.getPetWeight());
+            preparedStatement.setInt(6, pet.getPetId());
+            a = preparedStatement.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(rs, preparedStatement, connection);
+        }
+        return a;
+    }
 }

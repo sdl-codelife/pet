@@ -80,11 +80,12 @@ To change this template use File | Settings | File Templates.
                         <td><c:out value="${petinfo.userId}"/></td>
                         <td>
                             <div class="layui-inline">
-                                <a href="petinfo.action?userId=${info.userId}&userName=${info.userName}"
+                                <a href="toupdatePet.action?pet.petId=${petinfo.petId}&pet.petName=${petinfo.petName}&pet.petBreed=${petinfo.petBreed}&pet.petSex=${petinfo.petSex}&pet.petAge=${petinfo.petAge}&pet.petWeight=${petinfo.petWeight}&pet.userId=${petinfo.userId}"
                                    class="layui-btn layui-btn-small layui-btn-normal go-btn"><i class="layui-icon">&#xe642;</i></a>
                                 <a href="delPet.action?pet.petId=${petinfo.petId}&pet.userId=${petinfo.userId}&pageUtil.pageNo=1"
                                    class="layui-btn layui-btn-small layui-btn-normal del-btn"><i class="layui-icon">&#xe640;</i></a>
-                                <a class="layui-btn layui-btn-small layui-btn-normal  layui-btn-danger"><i>去挂号</i></a>
+                                <a href="todescriptForm.action?pet.petId=${petinfo.petId}"
+                                   class="layui-btn layui-btn-small layui-btn-normal  layui-btn-danger"><i>去挂号</i></a>
                             </div>
                         </td>
                     </tr>

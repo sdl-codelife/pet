@@ -1,20 +1,30 @@
 package com.sdl.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.sdl.entity.Description;
 import com.sdl.entity.Pet;
 import com.sdl.entity.User;
 import com.sdl.service.UserService;
 import com.sdl.service.impl.UserServiceImpl;
 import com.sdl.util.PageUtil;
 
+
 import java.util.List;
 
 public class UserAction extends ActionSupport {
     Pet pet;
     User user;
-
     List<Pet> petList;
     PageUtil pageUtil;
+    Description description;
+
+    public Description getDescription() {
+        return description;
+    }
+
+    public void setDescription(Description description) {
+        this.description = description;
+    }
 
     public PageUtil getPageUtil() {
         return pageUtil;
@@ -67,8 +77,28 @@ public class UserAction extends ActionSupport {
 
     public String delPet() {
         UserService userService = new UserServiceImpl();
-        System.out.println(pet.getPetId() + "SFSDFSDFSFSDFFSFSFSDFSFSFSD");
         userService.delPet(pet.getPetId());
+        return "success";
+    }
+
+    public String toupdatePet() {
+        System.out.println(pet);
+        return "success";
+    }
+
+    public String updatePet() {
+        UserService userService = new UserServiceImpl();
+        userService.updatePet(pet);
+        return "success";
+    }
+
+    public String todescriptForm() {
+        System.out.println(pet.getPetId());
+        return "success";
+    }
+
+    public String descriptForm() {
+        System.out.println(description);
         return "success";
     }
 }

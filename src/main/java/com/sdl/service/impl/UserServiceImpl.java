@@ -24,4 +24,9 @@ public class UserServiceImpl implements UserService {
     public boolean delPet(int petId) {
         return userDao.delPet(petId);
     }
+
+    @Override
+    public boolean updatePet(Pet pet) {
+        return userDao.updatePet(pet);
+    }
 }
