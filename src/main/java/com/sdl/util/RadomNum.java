@@ -8,16 +8,13 @@ public class RadomNum {
 
 
     public int generateRadomnum() {
-        int num = Integer.parseInt((new SimpleDateFormat("yyyyMMddHHmmss").format(new Date().getTime())).trim());
-        ;
-
-
+        String time = new SimpleDateFormat("yyyyMMddHH").format(new Date().getTime());
+        int num = Integer.valueOf(time);
         return num;
     }
 
     public String generateTime() {
         String time = new SimpleDateFormat("yyyy年MM月ddHH:mm:ss").format(new Date().getTime());
-        ;
         return time;
     }
 }

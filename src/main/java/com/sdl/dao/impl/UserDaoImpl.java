@@ -1,9 +1,11 @@
 package com.sdl.dao.impl;
 
 import com.sdl.dao.UserDao;
+import com.sdl.entity.Description;
 import com.sdl.entity.Pet;
 import com.sdl.entity.SUserInfo;
 import com.sdl.util.DBUtil;
+import com.sdl.util.SelectPet;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,6 +19,8 @@ public class UserDaoImpl implements UserDao {
     ResultSet rs = null;
     boolean a;
     List<Pet> petlist = new ArrayList<Pet>();
+    List<SelectPet> Selectlist = new ArrayList<SelectPet>();
+
     @Override
     public boolean addPet(Pet pet) {
         try {
@@ -99,6 +103,83 @@ public class UserDaoImpl implements UserDao {
             preparedStatement.setString(4, pet.getPetAge());
             preparedStatement.setString(5, pet.getPetWeight());
             preparedStatement.setInt(6, pet.getPetId());
+            a = preparedStatement.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(rs, preparedStatement, connection);
+        }
+        return a;
+    }
+
+    @Override
+    public List<SelectPet> Selectlist(int userId) {
+        try {
+
+            connection = DBUtil.getConnection();
+            String sql = "select * from t_pet where userId =?";
+            System.out.println(sql);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, userId);
+            rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int petId = rs.getInt("petid");
+                String petName = rs.getString("petname");
+                SelectPet selectlist = new SelectPet(petName, petId);
+                Selectlist.add(selectlist);
+            }
+            return Selectlist;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(rs, preparedStatement, connection);
+        }
+        return null;
+    }
+
+    @Override
+    public Pet selectPet(int petId) {
+        try {
+            connection = DBUtil.getConnection();
+            String sql = "select * from t_pet where petid =?";
+            System.out.println(sql);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, petId);
+            rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int userId = rs.getInt("userid");
+                String petName = rs.getString("petname");
+                String petBreed = rs.getString("petbreed");
+                String petSex = rs.getString("petsex");
+                String petAge = rs.getString("petage");
+                String petWeight = rs.getString("petweight");
+                Pet pet = new Pet(petId, petName, petBreed, petSex, petAge, petWeight, userId);
+                System.out.println(pet);
+                return pet;
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(rs, preparedStatement, connection);
+        }
+        return null;
+    }
+
+    @Override
+    public boolean creatDescription(Description description) {
+        try {
+            connection = DBUtil.getConnection();
+            String sql = "INSERT t_description (did,date,petname,description,result,petid,userid) VALUES(?,?,?,?,?,?,?)";
+            System.out.println(sql);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, description.getdId());
+            preparedStatement.setString(2, description.getDate());
+            preparedStatement.setString(3, description.getPetName());
+            preparedStatement.setString(4, description.getDescription());
+            preparedStatement.setString(5, description.getResult());
+            preparedStatement.setInt(6, description.getPetId());
+            preparedStatement.setInt(7, description.getUserId());
             a = preparedStatement.execute();
         } catch (Exception e) {
             e.printStackTrace();

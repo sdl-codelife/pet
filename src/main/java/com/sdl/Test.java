@@ -1,5 +1,7 @@
 package com.sdl;
 
+import com.sdl.service.UserService;
+import com.sdl.service.impl.UserServiceImpl;
 import com.sdl.util.RadomNum;
 
 import java.text.SimpleDateFormat;
@@ -9,6 +11,5 @@ public class Test {
     @org.junit.jupiter.api.Test
     void testlogin(){
         System.out.println(new RadomNum().generateRadomnum());
-        System.out.println(new RadomNum().generateTime());
     }
 }

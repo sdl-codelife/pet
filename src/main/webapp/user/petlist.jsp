@@ -84,7 +84,7 @@ To change this template use File | Settings | File Templates.
                                    class="layui-btn layui-btn-small layui-btn-normal go-btn"><i class="layui-icon">&#xe642;</i></a>
                                 <a href="delPet.action?pet.petId=${petinfo.petId}&pet.userId=${petinfo.userId}&pageUtil.pageNo=1"
                                    class="layui-btn layui-btn-small layui-btn-normal del-btn"><i class="layui-icon">&#xe640;</i></a>
-                                <a href="todescriptForm.action?pet.petId=${petinfo.petId}"
+                                <a href="todescriptForm.action?pet.petId=${petinfo.petId}&pet.petName=${petinfo.petName}&pet.userId=${petinfo.userId}"
                                    class="layui-btn layui-btn-small layui-btn-normal  layui-btn-danger"><i>去挂号</i></a>
                             </div>
                         </td>

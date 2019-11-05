@@ -12,8 +12,6 @@ public class Pet {
     public Pet() {
     }
 
-    ;
-
     public Pet(int petId, String petName, String petBreed, String petSex, String petAge, String petWeight, int userId) {
         this.petId = petId;
         this.petName = petName;

@@ -1,6 +1,8 @@
 package com.sdl.dao;
 
+import com.sdl.entity.Description;
 import com.sdl.entity.Pet;
+import com.sdl.util.SelectPet;
 
 import java.util.List;
 
@@ -35,4 +37,28 @@ public interface UserDao {
      * @return
      */
     public boolean updatePet(Pet pet);
+
+    /**
+     * 挂号功能宠物下拉选择实现
+     *
+     * @param userId
+     * @return
+     */
+    public List<SelectPet> Selectlist(int userId);
+
+    /**
+     * 根据petId查找宠物
+     *
+     * @param petId
+     * @return
+     */
+    public Pet selectPet(int petId);
+
+    /**
+     * 创建挂号单
+     *
+     * @param description
+     * @return
+     */
+    public boolean creatDescription(Description description);
 }

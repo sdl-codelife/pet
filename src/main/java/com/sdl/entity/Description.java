@@ -74,4 +74,17 @@ public class Description {
         this.userId = userId;
     }
 
+    @Override
+    public String toString() {
+        return "Description{" +
+                "dId=" + dId +
+                ", date='" + date + '\'' +
+                ", petName='" + petName + '\'' +
+                ", description='" + description + '\'' +
+                ", result='" + result + '\'' +
+                ", resoved=" + resoved +
+                ", petId=" + petId +
+                ", userId=" + userId +
+                '}';
+    }
 }

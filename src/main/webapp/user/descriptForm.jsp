@@ -33,9 +33,8 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">单号：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="description.did" required lay-verify="required"
-                               autocomplete="off" class="layui-input " value="NO."
-                               +<%=new RadomNum().generateRadomnum()%>>
+                        <input type="text" name="description.dId" required lay-verify="required"
+                               autocomplete="off" class="layui-input " value=<%=new RadomNum().generateRadomnum()%>>
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -54,7 +53,7 @@
                     <label class="layui-form-label">病情描述：</label>
                     <div class="layui-input-block">
                         <input type="text" name="description.description" required lay-verify="required"
-                               placeholder="请输入宠物种类"
+                               placeholder="请输入病情描述"
                                autocomplete="off" class="layui-input ">
                     </div>
                 </div>
@@ -87,12 +86,8 @@
         style: {
             marginLeft: '110px',
         },
-        name: 'description.petName',
-        data: [
-            {name: '张三', value: 1},
-            {name: '李四', value: 2},
-            {name: '王五', value: 3},
-        ]
+        name: 'description.petId',
+        data: ${SelectPetlist}
     })
 </script>
 </body>

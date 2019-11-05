@@ -1,5 +1,7 @@
 package com.sdl.action;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sdl.entity.Description;
 import com.sdl.entity.Pet;
@@ -7,6 +9,8 @@ import com.sdl.entity.User;
 import com.sdl.service.UserService;
 import com.sdl.service.impl.UserServiceImpl;
 import com.sdl.util.PageUtil;
+import com.sdl.util.RadomNum;
+import com.sdl.util.SelectPet;
 
 
 import java.util.List;
@@ -15,8 +19,26 @@ public class UserAction extends ActionSupport {
     Pet pet;
     User user;
     List<Pet> petList;
+    List<SelectPet> selectPet;
     PageUtil pageUtil;
     Description description;
+    JsonElement SelectPetlist;
+
+    public List<SelectPet> getSelectPet() {
+        return selectPet;
+    }
+
+    public void setSelectPet(List<SelectPet> selectPet) {
+        this.selectPet = selectPet;
+    }
+
+    public JsonElement getSelectPetlist() {
+        return SelectPetlist;
+    }
+
+    public void setSelectPetlist(JsonElement selectPetlist) {
+        SelectPetlist = selectPetlist;
+    }
 
     public Description getDescription() {
         return description;
@@ -91,14 +113,33 @@ public class UserAction extends ActionSupport {
         userService.updatePet(pet);
         return "success";
     }
-
     public String todescriptForm() {
+        UserService userService = new UserServiceImpl();
         System.out.println(pet.getPetId());
+        System.out.println(pet.getPetName());
+        selectPet = userService.Selectlist(pet.getUserId());
+        Gson gson = new Gson();
+        System.out.println(selectPet);
+        SelectPetlist = gson.toJsonTree(selectPet);
+        System.out.println(SelectPetlist);
         return "success";
     }
 
     public String descriptForm() {
+        UserService userService = new UserServiceImpl();
+        pet = userService.selectPet(description.getPetId());
+        description.setPetName(pet.getPetName());
+        description.setUserId(pet.getUserId());
+        //0代表为治疗
+        description.setResoved(0);
+        //写入数据库。。。。。。
         System.out.println(description);
+        userService.creatDescription(description);
         return "success";
+    }
+
+    public String todescripted() {
+        //获取userid 输出挂号对象
+        return null;
     }
 }
