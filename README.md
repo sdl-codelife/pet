@@ -34,3 +34,17 @@ userid int NOT NULL,
 PRIMARY KEY(petid),
 FOREIGN KEY(userid) REFERENCES t_user(userid) ON DELETE CASCADE ON UPDATE CASCADE
 )
+
+CREATE TABLE t_description(
+did INT auto_increment NOT NULL,
+date VARCHAR(24),
+petname VARCHAR(10),
+description VARCHAR(256),
+result VARCHAR(256),
+resoved int NOT NULL default 0,
+petid INT NOT NULL,
+userid  INT NOT NULL,
+PRIMARY KEY(did),
+FOREIGN KEY(petid) REFERENCES t_pet(petid) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY(userid) REFERENCES t_user(userid) ON DELETE CASCADE ON UPDATE CASCADE
+)
