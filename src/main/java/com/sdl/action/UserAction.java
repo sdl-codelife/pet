@@ -154,4 +154,23 @@ public class UserAction extends ActionSupport {
         System.out.println(descriptionList);
         return "success";
     }
+
+    public String totreatdForm() {
+        UserService userService = new UserServiceImpl();
+        System.out.println(description.getUserId());
+        selectPet = userService.Selectlist(description.getUserId());
+        Gson gson = new Gson();
+        SelectPetlist = gson.toJsonTree(selectPet);
+        return "success";
+    }
+
+    public String treatdForm() {
+        UserService userService = new UserServiceImpl();
+        System.out.println(pet.getPetId());
+        selectPet = userService.Selectlist(description.getUserId());
+        Gson gson = new Gson();
+        SelectPetlist = gson.toJsonTree(selectPet);
+        description = userService.getaDescription(pet.getPetId());
+        return "success";
+    }
 }

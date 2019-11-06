@@ -69,4 +69,12 @@ public interface UserDao {
      * @return
      */
     public List<Description> getDescription(int userId);
+
+    /**
+     * 根据宠物id获取挂号单
+     *
+     * @param petId
+     * @return
+     */
+    public Description getaDescription(int petId);
 }

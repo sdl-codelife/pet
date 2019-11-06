@@ -50,7 +50,8 @@ To change this template use File | Settings | File Templates.
                             class="l-line"></span>挂号</a></dd>
                     <dd><a href="todescripted.action?description.userId=${user.userId}" target="iframe"><span
                             class="l-line"></span>已挂号</a></dd>
-                    <dd><a href="javascript:;" target="iframe"><span class="l-line"></span>查看诊断</a></dd>
+                    <dd><a href="totreatdForm.action?description.userId=${user.userId}" target="iframe"><span
+                            class="l-line"></span>查看诊断</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item">

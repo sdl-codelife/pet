@@ -22,4 +22,6 @@ public interface UserService {
     public boolean creatDescription(Description description);
 
     public List<Description> getDescription(int userId);
+
+    public Description getaDescription(int petId);
 }

@@ -215,4 +215,33 @@ public class UserDaoImpl implements UserDao {
         }
         return null;
     }
+
+    @Override
+    public Description getaDescription(int petId) {
+        Description descriptionl = null;
+        try {
+            connection = DBUtil.getConnection();
+            String sql = "select * from t_description where petid =?";
+            System.out.println(sql);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, petId);
+            rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int dId = rs.getInt("did");
+                String date = rs.getString("date");
+                String petName = rs.getString("petname");
+                String description = rs.getString("description");
+                String result = rs.getString("result");
+                int resoved = rs.getInt("resoved");
+                int userId = rs.getInt("userid");
+                descriptionl = new Description(dId, date, petName, description, result, resoved, petId, userId);
+            }
+            return descriptionl;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(rs, preparedStatement, connection);
+        }
+        return null;
+    }
 }

@@ -82,5 +82,13 @@
             <result name="success">/user/descriptedForm.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
+        <action name="totreatdForm" class="com.sdl.action.UserAction" method="totreatdForm">
+            <result name="success">/user/totreatdForm.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
+        <action name="treatdForm" class="com.sdl.action.UserAction" method="treatdForm">
+            <result name="success">/user/treatdForm.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
     </package>
 </struts>

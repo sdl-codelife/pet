@@ -50,4 +50,9 @@ public class UserServiceImpl implements UserService {
     public List<Description> getDescription(int userId) {
         return userDao.getDescription(userId);
     }
+
+    @Override
+    public Description getaDescription(int petId) {
+        return userDao.getaDescription(petId);
+    }
 }

@@ -24,8 +24,8 @@
 <div class="layui-tab page-content-wrap">
     <ul class="layui-tab-title">
         <li class="layui-this">挂号单</li>
-
     </ul>
+
     <div class="layui-tab-content">
         <div class="layui-tab-item layui-show">
             <form class="layui-form" action="descriptForm.action" method="post"
@@ -48,15 +48,13 @@
                     <label class="layui-form-label">宠物姓名：</label>
                     <div id="demo1" class="xm-select-demo"></div>
                 </div>
-
-                <div class="layui-form-item">
+                <div class="layui-form-item layui-form-text">
                     <label class="layui-form-label">病情描述：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="description.description" required lay-verify="required"
-                               placeholder="请输入病情描述"
-                               autocomplete="off" class="layui-input ">
+                        <textarea name="description.description" class="layui-textarea"></textarea>
                     </div>
                 </div>
+
                 <div class="layui-form-item">
                     <div class="layui-input-block">
                         <button class="layui-btn layui-btn-normal" lay-submit lay-filter="adminInfo">立即提交</button>

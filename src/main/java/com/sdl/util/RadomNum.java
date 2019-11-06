@@ -8,8 +8,7 @@ public class RadomNum {
 
 
     public int generateRadomnum() {
-        String time = new SimpleDateFormat("yyyyMMddHH").format(new Date().getTime());
-        int num = Integer.valueOf(time);
+        int num = (int) (Math.random() * 1000000);
         return num;
     }
 
