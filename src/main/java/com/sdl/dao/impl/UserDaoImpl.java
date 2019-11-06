@@ -3,10 +3,8 @@ package com.sdl.dao.impl;
 import com.sdl.dao.UserDao;
 import com.sdl.entity.Description;
 import com.sdl.entity.Pet;
-import com.sdl.entity.SUserInfo;
 import com.sdl.util.DBUtil;
 import com.sdl.util.SelectPet;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +18,7 @@ public class UserDaoImpl implements UserDao {
     boolean a;
     List<Pet> petlist = new ArrayList<Pet>();
     List<SelectPet> Selectlist = new ArrayList<SelectPet>();
-
+    List<Description> descriptions = new ArrayList<Description>();
     @Override
     public boolean addPet(Pet pet) {
         try {
@@ -187,5 +185,34 @@ public class UserDaoImpl implements UserDao {
             DBUtil.close(rs, preparedStatement, connection);
         }
         return a;
+    }
+
+    @Override
+    public List<Description> getDescription(int userId) {
+        try {
+            connection = DBUtil.getConnection();
+            String sql = "select * from t_description where userid =?";
+            System.out.println(sql);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, userId);
+            rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int dId = rs.getInt("did");
+                String date = rs.getString("date");
+                String petName = rs.getString("petname");
+                String description = rs.getString("description");
+                String result = rs.getString("result");
+                int resoved = rs.getInt("resoved");
+                int petId = rs.getInt("petid");
+                Description descriptionl = new Description(dId, date, petName, description, result, resoved, petId, userId);
+                descriptions.add(descriptionl);
+            }
+            return descriptions;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(rs, preparedStatement, connection);
+        }
+        return null;
     }
 }

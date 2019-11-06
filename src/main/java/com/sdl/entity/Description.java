@@ -10,6 +10,22 @@ public class Description {
     int petId;
     int userId;
 
+    public Description() {
+    }
+
+    ;
+
+    public Description(int dId, String date, String petName, String description, String result, int resoved, int petId, int userId) {
+        this.dId = dId;
+        this.date = date;
+        this.petName = petName;
+        this.description = description;
+        this.result = result;
+        this.resoved = resoved;
+        this.petId = petId;
+        this.userId = userId;
+    }
+
     public int getdId() {
         return dId;
     }

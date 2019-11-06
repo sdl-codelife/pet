@@ -61,4 +61,12 @@ public interface UserDao {
      * @return
      */
     public boolean creatDescription(Description description);
+
+    /**
+     * 根据主人id获取所有挂号单
+     *
+     * @param userId
+     * @return
+     */
+    public List<Description> getDescription(int userId);
 }

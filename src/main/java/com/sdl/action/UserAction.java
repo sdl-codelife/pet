@@ -23,6 +23,15 @@ public class UserAction extends ActionSupport {
     PageUtil pageUtil;
     Description description;
     JsonElement SelectPetlist;
+    List<Description> descriptionList;
+
+    public List<Description> getDescriptionList() {
+        return descriptionList;
+    }
+
+    public void setDescriptionList(List<Description> descriptionList) {
+        this.descriptionList = descriptionList;
+    }
 
     public List<SelectPet> getSelectPet() {
         return selectPet;
@@ -119,7 +128,6 @@ public class UserAction extends ActionSupport {
         System.out.println(pet.getPetName());
         selectPet = userService.Selectlist(pet.getUserId());
         Gson gson = new Gson();
-        System.out.println(selectPet);
         SelectPetlist = gson.toJsonTree(selectPet);
         System.out.println(SelectPetlist);
         return "success";
@@ -130,7 +138,7 @@ public class UserAction extends ActionSupport {
         pet = userService.selectPet(description.getPetId());
         description.setPetName(pet.getPetName());
         description.setUserId(pet.getUserId());
-        //0代表为治疗
+        //0代表未治疗
         description.setResoved(0);
         //写入数据库。。。。。。
         System.out.println(description);
@@ -139,7 +147,11 @@ public class UserAction extends ActionSupport {
     }
 
     public String todescripted() {
+        UserService userService = new UserServiceImpl();
+        System.out.println(description.getUserId());
         //获取userid 输出挂号对象
-        return null;
+        descriptionList = userService.getDescription(description.getUserId());
+        System.out.println(descriptionList);
+        return "success";
     }
 }

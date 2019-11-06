@@ -6,7 +6,6 @@ import com.sdl.entity.Description;
 import com.sdl.entity.Pet;
 import com.sdl.service.UserService;
 import com.sdl.util.SelectPet;
-
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
@@ -45,5 +44,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean creatDescription(Description description) {
         return userDao.creatDescription(description);
+    }
+
+    @Override
+    public List<Description> getDescription(int userId) {
+        return userDao.getDescription(userId);
     }
 }

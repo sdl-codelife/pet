@@ -79,7 +79,7 @@
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="todescripted" class="com.sdl.action.UserAction" method="todescripted">
-            <result name="success">/user/descriptForm.jsp</result>
+            <result name="success">/user/descriptedForm.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
     </package>
