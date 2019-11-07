@@ -94,9 +94,11 @@ To change this template use File | Settings | File Templates.
             </table>
             <div class="page-wrap">
                 <ul class="pagination">
-                    <li><a href="userlist.action?user.userType=admin&pageUtil.pageNo=${pageUtil.pageNo-1}">«</a></li>
+                    <li><a href="petList.action?pet.userId=${pet.userId}&pageUtil.pageNo=${pageUtil.pageNo-1}">«</a>
+                    </li>
                     <li class="active"><span>${pageUtil.pageNo}</span></li>
-                    <li><a href="userlist.action?user.userType=admin&pageUtil.pageNo=${pageUtil.pageNo+1}">»</a></li>
+                    <li><a href="petList.action?pet.userId=${pet.userId}&pageUtil.pageNo=${pageUtil.pageNo+1}">»</a>
+                    </li>
                 </ul>
                 <ul>
                     <li><a>共${pageUtil.totalPage}页</a></li>

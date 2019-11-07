@@ -77,4 +77,12 @@ public interface UserDao {
      * @return
      */
     public Description getaDescription(int petId);
+
+    /**
+     * 根据挂号单id删除挂号单
+     *
+     * @param dId
+     * @return
+     */
+    public boolean deldescriptForm(int dId);
 }

@@ -10,7 +10,7 @@ import java.util.Date;
 public class Test {
     @org.junit.jupiter.api.Test
     void testlogin(){
-        System.out.println(new UserServiceImpl().getDescription(3233));
+        System.out.println(new RadomNum().generateRadomnum());
 
     }
 }

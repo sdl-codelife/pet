@@ -82,7 +82,7 @@ To change this template use File | Settings | File Templates.
                             <div class="layui-inline">
                                 <a href="toupdatePet.action?pet.petId=${petinfo.petId}&pet.petName=${petinfo.petName}&pet.petBreed=${petinfo.petBreed}&pet.petSex=${petinfo.petSex}&pet.petAge=${petinfo.petAge}&pet.petWeight=${petinfo.petWeight}&pet.userId=${petinfo.userId}"
                                    class="layui-btn layui-btn-small layui-btn-normal go-btn"><i class="layui-icon">&#xe642;</i></a>
-                                <a href="delPet.action?pet.petId=${petinfo.petId}&pet.userId=${petinfo.userId}&pageUtil.pageNo=1"
+                                <a href="deldescriptForm.action?description.dId=${delist.dId}"
                                    class="layui-btn layui-btn-small layui-btn-normal del-btn"><i class="layui-icon">&#xe640;</i></a>
                                 <a href="todescriptForm.action?pet.petId=${petinfo.petId}&pet.petName=${petinfo.petName}&pet.userId=${petinfo.userId}"
                                    class="layui-btn layui-btn-small layui-btn-normal  layui-btn-danger"><i>查看诊断</i></a>
@@ -94,9 +94,13 @@ To change this template use File | Settings | File Templates.
             </table>
             <div class="page-wrap">
                 <ul class="pagination">
-                    <li><a href="userlist.action?user.userType=admin&pageUtil.pageNo=${pageUtil.pageNo-1}">«</a></li>
+                    <li>
+                        <a href="todescripted.action?description.userId=${description.userId}&pageUtil.pageNo=${pageUtil.pageNo-1}">«</a>
+                    </li>
                     <li class="active"><span>${pageUtil.pageNo}</span></li>
-                    <li><a href="userlist.action?user.userType=admin&pageUtil.pageNo=${pageUtil.pageNo+1}">»</a></li>
+                    <li>
+                        <a href="todescripted.action?description.userId=${description.userId}&pageUtil.pageNo=${pageUtil.pageNo+1}">»</a>
+                    </li>
                 </ul>
                 <ul>
                     <li><a>共${pageUtil.totalPage}页</a></li>

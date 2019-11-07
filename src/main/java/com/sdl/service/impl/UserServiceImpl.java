@@ -55,4 +55,9 @@ public class UserServiceImpl implements UserService {
     public Description getaDescription(int petId) {
         return userDao.getaDescription(petId);
     }
+
+    @Override
+    public boolean deldescriptForm(int dId) {
+        return userDao.deldescriptForm(dId);
+    }
 }

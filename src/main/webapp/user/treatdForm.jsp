@@ -77,7 +77,6 @@
         var element = layui.element();
         form.render();
         //监听信息提交
-
     });
 </script>
 <script>

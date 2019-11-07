@@ -150,7 +150,7 @@ public class UserAction extends ActionSupport {
         UserService userService = new UserServiceImpl();
         System.out.println(description.getUserId());
         //获取userid 输出挂号对象
-        descriptionList = userService.getDescription(description.getUserId());
+        descriptionList = pageUtil.setList(userService.getDescription(description.getUserId()), pageUtil.getPageNo());
         System.out.println(descriptionList);
         return "success";
     }
@@ -171,6 +171,13 @@ public class UserAction extends ActionSupport {
         Gson gson = new Gson();
         SelectPetlist = gson.toJsonTree(selectPet);
         description = userService.getaDescription(pet.getPetId());
+        return "success";
+    }
+
+    public String deldescriptForm() {
+        //根据id删除挂号单
+        UserService userService = new UserServiceImpl();
+        userService.deldescriptForm(description.getdId());
         return "success";
     }
 }

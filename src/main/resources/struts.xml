@@ -90,5 +90,9 @@
             <result name="success">/user/treatdForm.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
+        <action name="deldescriptForm" class="com.sdl.action.UserAction" method="deldescriptForm">
+            <result name="success">/user/descriptedForm.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
     </package>
 </struts>

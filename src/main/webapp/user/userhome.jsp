@@ -48,7 +48,8 @@ To change this template use File | Settings | File Templates.
                 <dl class="layui-nav-child">
                     <dd><a href="todescriptForm.action?pet.userId=${user.userId}" target="iframe"><span
                             class="l-line"></span>挂号</a></dd>
-                    <dd><a href="todescripted.action?description.userId=${user.userId}" target="iframe"><span
+                    <dd><a href="todescripted.action?description.userId=${user.userId}&pageUtil.pageNo=1"
+                           target="iframe"><span
                             class="l-line"></span>已挂号</a></dd>
                     <dd><a href="totreatdForm.action?description.userId=${user.userId}" target="iframe"><span
                             class="l-line"></span>查看诊断</a></dd>

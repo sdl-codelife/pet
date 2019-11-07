@@ -24,4 +24,6 @@ public interface UserService {
     public List<Description> getDescription(int userId);
 
     public Description getaDescription(int petId);
+
+    public boolean deldescriptForm(int dId);
 }

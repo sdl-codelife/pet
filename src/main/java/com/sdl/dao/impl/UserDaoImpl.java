@@ -244,4 +244,21 @@ public class UserDaoImpl implements UserDao {
         }
         return null;
     }
+
+    @Override
+    public boolean deldescriptForm(int dId) {
+        try {
+            connection = DBUtil.getConnection();
+            String sql = "delete from t_description where did = ?";
+            System.out.println(sql);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, dId);
+            a = preparedStatement.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(rs, preparedStatement, connection);
+        }
+        return a;
+    }
 }
