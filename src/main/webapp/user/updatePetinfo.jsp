@@ -28,7 +28,9 @@
     </ul>
     <div class="layui-tab-content">
         <div class="layui-tab-item layui-show">
-            <form class="layui-form" action="updatePet.action?pet.petId=${pet.petId}" method="post"
+            <form class="layui-form"
+                  action="updatePet.action?pet.petId=${pet.petId}&pet.userId=${pet.userId}&pageUtil.pageNo=1"
+                  method="post"
                   style="width: 90%;padding-top: 20px;">
                 <div class="layui-form-item">
                     <label class="layui-form-label">宠物姓名：</label>

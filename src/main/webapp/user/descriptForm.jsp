@@ -28,7 +28,8 @@
 
     <div class="layui-tab-content">
         <div class="layui-tab-item layui-show">
-            <form class="layui-form" action="descriptForm.action" method="post"
+            <form class="layui-form" action="descriptForm.action?description.userId=${pet.userId}&pageUtil.pageNo=1"
+                  method="post"
                   style="width: 90%;padding-top: 20px;">
                 <div class="layui-form-item">
                     <label class="layui-form-label">单号：</label>
@@ -83,6 +84,7 @@
         radio: true,
         style: {
             marginLeft: '110px',
+            width: '200px',
         },
         name: 'description.petId',
         data: ${SelectPetlist}

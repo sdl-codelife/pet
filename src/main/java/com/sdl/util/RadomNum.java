@@ -13,7 +13,7 @@ public class RadomNum {
     }
 
     public String generateTime() {
-        String time = new SimpleDateFormat("yyyy年MM月ddHH:mm:ss").format(new Date().getTime());
+        String time = new SimpleDateFormat("yyyy年MM月dd日-HH:mm:ss").format(new Date().getTime());
         return time;
     }
 }

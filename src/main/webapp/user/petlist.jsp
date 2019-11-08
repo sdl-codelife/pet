@@ -109,6 +109,12 @@ To change this template use File | Settings | File Templates.
 </div>
 <script src="static/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script src="static/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var message = "${requestScope.message}";
+    if (message != "") {
+        alert(message);
+    }
+</script>
 </body>
 
 </html>

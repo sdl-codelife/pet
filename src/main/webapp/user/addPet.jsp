@@ -28,7 +28,7 @@
     </ul>
     <div class="layui-tab-content">
         <div class="layui-tab-item layui-show">
-            <form class="layui-form" action="addPet.action?pet.userId=${user.userId}" method="post"
+            <form class="layui-form" action="addPet.action?pet.userId=${user.userId}&pageUtil.pageNo=1" method="post"
                   style="width: 90%;padding-top: 20px;">
                 <div class="layui-form-item">
                     <label class="layui-form-label">宠物姓名：</label>
@@ -84,6 +84,13 @@
         //监听信息提交
 
     });
+</script>
+<script src="static/admin/layui/lay/modules/layer.js"></script>
+<script type="text/javascript">
+    var message = "${requestScope.message}";
+    if (message != "") {
+        alert(message);
+    }
 </script>
 </body>
 </html>

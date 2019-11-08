@@ -7,23 +7,23 @@ import com.sdl.util.SelectPet;
 import java.util.List;
 
 public interface UserService {
-    public boolean addPet(Pet pet);
+    public int addPet(Pet pet);
 
     public List<Pet> petList(int userId);
 
-    public boolean delPet(int petId);
+    public int delPet(int petId);
 
-    public boolean updatePet(Pet pet);
+    public int updatePet(Pet pet);
 
     public List<SelectPet> Selectlist(int userId);
 
     public Pet selectPet(int petId);
 
-    public boolean creatDescription(Description description);
+    public int creatDescription(Description description);
 
     public List<Description> getDescription(int userId);
 
     public Description getaDescription(int petId);
 
-    public boolean deldescriptForm(int dId);
+    public int deldescriptForm(int dId);
 }

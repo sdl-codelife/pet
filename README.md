@@ -29,7 +29,7 @@ petname varchar(10) not null,
 petbreed varchar(10),
 petsex varchar(2),
 petage varchar(2),
-petweight varchar(2),
+petweight varchar(10),
 userid int NOT NULL,
 PRIMARY KEY(petid),
 FOREIGN KEY(userid) REFERENCES t_user(userid) ON DELETE CASCADE ON UPDATE CASCADE

@@ -25,4 +25,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     fail <br>
   </body>
+  <script type="text/javascript">
+      var message = "${requestScope.message}";
+      if (message != "") {
+          alert(message);
+      }
+  </script>
 </html>

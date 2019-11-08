@@ -12,7 +12,7 @@ public interface UserDao {
      *
      * @return
      */
-    public boolean addPet(Pet pet);
+    public int addPet(Pet pet);
 
     /**
      * 查看某人的所有宠物
@@ -28,7 +28,7 @@ public interface UserDao {
      * @param petId
      * @return
      */
-    public boolean delPet(int petId);
+    public int delPet(int petId);
 
     /**
      * 更新宠物信息
@@ -36,7 +36,7 @@ public interface UserDao {
      * @param pet
      * @return
      */
-    public boolean updatePet(Pet pet);
+    public int updatePet(Pet pet);
 
     /**
      * 挂号功能宠物下拉选择实现
@@ -60,7 +60,7 @@ public interface UserDao {
      * @param description
      * @return
      */
-    public boolean creatDescription(Description description);
+    public int creatDescription(Description description);
 
     /**
      * 根据主人id获取所有挂号单
@@ -84,5 +84,5 @@ public interface UserDao {
      * @param dId
      * @return
      */
-    public boolean deldescriptForm(int dId);
+    public int deldescriptForm(int dId);
 }

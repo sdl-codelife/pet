@@ -51,7 +51,7 @@
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="addPet" class="com.sdl.action.UserAction" method="addPet">
-            <result name="success">/user/addPet.jsp</result>
+            <result type="chain" name="success">petList</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="petList" class="com.sdl.action.UserAction" method="petList">
@@ -59,7 +59,7 @@
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="delPet" class="com.sdl.action.UserAction" method="delPet">
-            <result name="success">/user/petlist.jsp</result>
+            <result type="chain" name="success">petList</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="toupdatePet" class="com.sdl.action.UserAction" method="toupdatePet">
@@ -67,7 +67,7 @@
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="updatePet" class="com.sdl.action.UserAction" method="updatePet">
-            <result name="success">/user/petlist.jsp</result>
+            <result type="chain" name="success">petList</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="todescriptForm" class="com.sdl.action.UserAction" method="todescriptForm">
@@ -75,7 +75,7 @@
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="descriptForm" class="com.sdl.action.UserAction" method="descriptForm">
-            <result name="success">/user/descriptForm.jsp</result>
+            <result type="chain" name="success">todescripted</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="todescripted" class="com.sdl.action.UserAction" method="todescripted">
@@ -91,7 +91,7 @@
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="deldescriptForm" class="com.sdl.action.UserAction" method="deldescriptForm">
-            <result name="success">/user/descriptedForm.jsp</result>
+            <result type="chain" name="success">todescripted</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
     </package>

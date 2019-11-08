@@ -2,6 +2,7 @@ package com.sdl.action;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sdl.entity.Description;
 import com.sdl.entity.Pet;
@@ -9,10 +10,7 @@ import com.sdl.entity.User;
 import com.sdl.service.UserService;
 import com.sdl.service.impl.UserServiceImpl;
 import com.sdl.util.PageUtil;
-import com.sdl.util.RadomNum;
 import com.sdl.util.SelectPet;
-
-
 import java.util.List;
 
 public class UserAction extends ActionSupport {
@@ -88,28 +86,45 @@ public class UserAction extends ActionSupport {
         this.pet = pet;
     }
 
+    //跳转到新增宠物
     public String toaddPet() {
         System.out.println(user.getUserId());
         return "success";
     }
 
+    //新增宠物
     public String addPet() {
         UserService userService = new UserServiceImpl();
         System.out.println(pet);
-        userService.addPet(pet);
-        return "success";
+        int flag = userService.addPet(pet);
+        if (flag != 0) {
+            ActionContext.getContext().put("message", "添加成功");
+            return "success";
+        } else {
+            ActionContext.getContext().put("message", "添加失败");
+            return "fail";
+        }
     }
 
+    //宠物列表
     public String petList() {
         UserService userService = new UserServiceImpl();
         petList = pageUtil.setList(userService.petList(pet.getUserId()), pageUtil.getPageNo());
         return "success";
     }
 
+    //根据宠物Id删除宠物
     public String delPet() {
         UserService userService = new UserServiceImpl();
-        userService.delPet(pet.getPetId());
-        return "success";
+        int flag = userService.delPet(pet.getPetId());
+        System.out.println(pet.getPetId());
+        if (flag == 1) {
+            ActionContext.getContext().put("message", "删除成功");
+            return "success";
+        } else {
+            ActionContext.getContext().put("message", "删除失败");
+            return "fail";
+        }
     }
 
     public String toupdatePet() {
@@ -117,15 +132,20 @@ public class UserAction extends ActionSupport {
         return "success";
     }
 
+    //更新宠物
     public String updatePet() {
         UserService userService = new UserServiceImpl();
-        userService.updatePet(pet);
-        return "success";
+        int flag = userService.updatePet(pet);
+        if (flag == 1) {
+            ActionContext.getContext().put("message", "更新成功");
+            return "success";
+        } else {
+            ActionContext.getContext().put("message", "更新失败");
+            return "fail";
+        }
     }
     public String todescriptForm() {
         UserService userService = new UserServiceImpl();
-        System.out.println(pet.getPetId());
-        System.out.println(pet.getPetName());
         selectPet = userService.Selectlist(pet.getUserId());
         Gson gson = new Gson();
         SelectPetlist = gson.toJsonTree(selectPet);
@@ -133,6 +153,7 @@ public class UserAction extends ActionSupport {
         return "success";
     }
 
+    //挂号
     public String descriptForm() {
         UserService userService = new UserServiceImpl();
         pet = userService.selectPet(description.getPetId());
@@ -142,8 +163,14 @@ public class UserAction extends ActionSupport {
         description.setResoved(0);
         //写入数据库。。。。。。
         System.out.println(description);
-        userService.creatDescription(description);
-        return "success";
+        int flag = userService.creatDescription(description);
+        if (flag == 1) {
+            ActionContext.getContext().put("message", "挂号成功");
+            return "success";
+        } else {
+            ActionContext.getContext().put("message", "挂号失败");
+            return "fail";
+        }
     }
 
     public String todescripted() {
@@ -177,7 +204,13 @@ public class UserAction extends ActionSupport {
     public String deldescriptForm() {
         //根据id删除挂号单
         UserService userService = new UserServiceImpl();
-        userService.deldescriptForm(description.getdId());
-        return "success";
+        int flag = userService.deldescriptForm(description.getdId());
+        if (flag == 1) {
+            ActionContext.getContext().put("message", "删除成功");
+            return "success";
+        } else {
+            ActionContext.getContext().put("message", "删除失败");
+            return "fail";
+        }
     }
 }

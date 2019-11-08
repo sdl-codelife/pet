@@ -12,7 +12,7 @@ public class UserServiceImpl implements UserService {
     UserDao userDao = new UserDaoImpl();
 
     @Override
-    public boolean addPet(Pet pet) {
+    public int addPet(Pet pet) {
         return userDao.addPet(pet);
     }
 
@@ -22,12 +22,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean delPet(int petId) {
+    public int delPet(int petId) {
         return userDao.delPet(petId);
     }
 
     @Override
-    public boolean updatePet(Pet pet) {
+    public int updatePet(Pet pet) {
         return userDao.updatePet(pet);
     }
 
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean creatDescription(Description description) {
+    public int creatDescription(Description description) {
         return userDao.creatDescription(description);
     }
 
@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean deldescriptForm(int dId) {
+    public int deldescriptForm(int dId) {
         return userDao.deldescriptForm(dId);
     }
 }

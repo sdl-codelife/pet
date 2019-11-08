@@ -16,11 +16,12 @@ public class UserDaoImpl implements UserDao {
     PreparedStatement preparedStatement = null;
     ResultSet rs = null;
     boolean a;
+    int b;
     List<Pet> petlist = new ArrayList<Pet>();
     List<SelectPet> Selectlist = new ArrayList<SelectPet>();
     List<Description> descriptions = new ArrayList<Description>();
     @Override
-    public boolean addPet(Pet pet) {
+    public int addPet(Pet pet) {
         try {
             connection = DBUtil.getConnection();
             String sql = "INSERT t_pet (petname,petbreed,petsex,petage,petweight,userid) VALUES(?,?,?,?,?,?)";
@@ -32,13 +33,13 @@ public class UserDaoImpl implements UserDao {
             preparedStatement.setString(4, pet.getPetAge());
             preparedStatement.setString(5, pet.getPetWeight());
             preparedStatement.setInt(6, pet.getUserId());
-            a = preparedStatement.execute();
+            b = preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             DBUtil.close(rs, preparedStatement, connection);
         }
-        return a;
+        return b;
     }
 
     @Override
@@ -72,24 +73,24 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean delPet(int petId) {
+    public int delPet(int petId) {
         try {
             connection = DBUtil.getConnection();
             String sql = "delete from t_pet where petid =?";
             System.out.println(sql);
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, petId);
-            a = preparedStatement.execute();
+            b = preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             DBUtil.close(rs, preparedStatement, connection);
         }
-        return a;
+        return b;
     }
 
     @Override
-    public boolean updatePet(Pet pet) {
+    public int updatePet(Pet pet) {
         try {
             connection = DBUtil.getConnection();
             String sql = "update t_pet set petname = ?,petbreed = ?,petsex = ?,petage = ?,petweight =?  where petid = ? ";
@@ -101,13 +102,13 @@ public class UserDaoImpl implements UserDao {
             preparedStatement.setString(4, pet.getPetAge());
             preparedStatement.setString(5, pet.getPetWeight());
             preparedStatement.setInt(6, pet.getPetId());
-            a = preparedStatement.execute();
+            b = preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             DBUtil.close(rs, preparedStatement, connection);
         }
-        return a;
+        return b;
     }
 
     @Override
@@ -165,7 +166,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean creatDescription(Description description) {
+    public int creatDescription(Description description) {
         try {
             connection = DBUtil.getConnection();
             String sql = "INSERT t_description (did,date,petname,description,result,petid,userid) VALUES(?,?,?,?,?,?,?)";
@@ -178,13 +179,13 @@ public class UserDaoImpl implements UserDao {
             preparedStatement.setString(5, description.getResult());
             preparedStatement.setInt(6, description.getPetId());
             preparedStatement.setInt(7, description.getUserId());
-            a = preparedStatement.execute();
+            b = preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             DBUtil.close(rs, preparedStatement, connection);
         }
-        return a;
+        return b;
     }
 
     @Override
@@ -246,19 +247,19 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean deldescriptForm(int dId) {
+    public int deldescriptForm(int dId) {
         try {
             connection = DBUtil.getConnection();
             String sql = "delete from t_description where did = ?";
             System.out.println(sql);
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, dId);
-            a = preparedStatement.execute();
+            b = preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             DBUtil.close(rs, preparedStatement, connection);
         }
-        return a;
+        return b;
     }
 }
