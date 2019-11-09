@@ -56,12 +56,10 @@ To change this template use File | Settings | File Templates.
                 </dl>
             </li>
             <li class="layui-nav-item">
-                <a href="javascript:;" data-url="admin-info.html" data-id='5' data-text="个人信息"><i class="iconfont">&#xe606;</i>个人信息</a>
+                <a href="userinfo.action?userId=${user.userId}&userName=${user.userName}" target="iframe"><i
+                        class="iconfont">&#xe606;</i>个人信息</a>
             </li>
-            <li class="layui-nav-item">
-                <a href="javascript:;" data-url="system.html" data-id='6' data-text="系统设置"><i
-                        class="iconfont">&#xe60b;</i>系统设置</a>
-            </li>
+
         </ul>
     </div>
     <!--右侧内容-->
