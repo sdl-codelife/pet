@@ -25,13 +25,13 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public boolean updateUserInfo(String userSex, String userTel, String userQQ, String userNote, int userId) {
-        return adminDao.updateUserInfo(userSex, userTel, userQQ, userNote, userId);
+    public int updateUserInfo(UserInfo userInfo) {
+        return adminDao.updateUserInfo(userInfo);
     }
 
     @Override
-    public boolean updateUserPassword(int userId, String userName, String userPassword) {
-        return adminDao.updateUserPassword(userId, userName, userPassword);
+    public int updateUserPassword(User user) {
+        return adminDao.updateUserPassword(user);
     }
 
     @Override
@@ -53,4 +53,5 @@ public class AdminServiceImpl implements AdminService {
     public boolean addUserInfo(int userId, UserInfo userInfo) {
         return adminDao.addUserInfo(userId, userInfo);
     }
+
 }

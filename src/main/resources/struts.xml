@@ -7,9 +7,9 @@
     <constant name="struts.action.excludePattern" value="/static/.*?" />
     <package name="sdl"  extends="struts-default">
         <action name="login" class="com.sdl.action.AdminAction" method="login">
-            <result name="admin">/admin/adminhome.jsp</result>
-            <result name="user">/user/userhome.jsp</result>
-            <result name="doctor">/doctor/doctor.jsp</result>
+            <result name="admin">/views/admin/adminHome.jsp</result>
+            <result name="user">/views/user/userHome.jsp</result>
+            <result name="doctor">/views/doctor/doctorHome.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="logout" class="com.sdl.action.AdminAction" method="logout">
@@ -17,45 +17,45 @@
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="userinfo" class="com.sdl.action.AdminAction" method="userinfo">
-            <result name="success">/admin/admin_info.jsp</result>
+            <result name="success">/views/admin/admin_info.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="updateUserInfo" class="com.sdl.action.AdminAction" method="updateUserInfo">
-            <result name="success">/admin/admin_info.jsp</result>
+            <result type="chain" name="success">userinfo</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="updateUserPassword" class="com.sdl.action.AdminAction" method="updateUserPassword">
-            <result name="success">/admin/admin_info.jsp</result>
+            <result type="redirect" name="success">/login.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="userlist" class="com.sdl.action.AdminAction" method="userlist">
-            <result name="success">/admin/userlist.jsp</result>
+            <result name="success">/views/admin/userlist.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="delUser" class="com.sdl.action.AdminAction" method="delUser">
-            <result name="success">/admin/userlist.jsp</result>
+            <result name="success">/views/admin/userlist.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="toaddUser" class="com.sdl.action.AdminAction" method="toaddUser">
-            <result name="success">/admin/addUser.jsp</result>
+            <result name="success">/views/admin/addUser.jsp</result>
         </action>
         <action name="addUser" class="com.sdl.action.AdminAction" method="addUser">
-            <result name="success">/admin/userlist.jsp</result>
+            <result name="success">/views/admin/userlist.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
     </package>
 
     <package name="pet" extends="struts-default">
         <action name="toaddPet" class="com.sdl.action.UserAction" method="toaddPet">
-            <result name="success">/user/addPet.jsp</result>
-            <result name="fail">/MyJsp.jsp</result>
+            <result name="success">/views/user/addPet.jsp</result>
+            <result name="fail">/views/MyJsp.jsp</result>
         </action>
         <action name="addPet" class="com.sdl.action.UserAction" method="addPet">
             <result type="chain" name="success">petList</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="petList" class="com.sdl.action.UserAction" method="petList">
-            <result name="success">/user/petlist.jsp</result>
+            <result name="success">/views/user/petlist.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="delPet" class="com.sdl.action.UserAction" method="delPet">
@@ -63,7 +63,7 @@
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="toupdatePet" class="com.sdl.action.UserAction" method="toupdatePet">
-            <result name="success">/user/updatePetinfo.jsp</result>
+            <result name="success">/views/user/updatePetinfo.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="updatePet" class="com.sdl.action.UserAction" method="updatePet">
@@ -71,7 +71,7 @@
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="todescriptForm" class="com.sdl.action.UserAction" method="todescriptForm">
-            <result name="success">/user/descriptForm.jsp</result>
+            <result name="success">/views/user/descriptForm.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="descriptForm" class="com.sdl.action.UserAction" method="descriptForm">
@@ -79,15 +79,15 @@
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="todescripted" class="com.sdl.action.UserAction" method="todescripted">
-            <result name="success">/user/descriptedForm.jsp</result>
+            <result name="success">/views/user/descriptedForm.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="totreatdForm" class="com.sdl.action.UserAction" method="totreatdForm">
-            <result name="success">/user/totreatdForm.jsp</result>
+            <result name="success">/views/user/totreatdForm.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="treatdForm" class="com.sdl.action.UserAction" method="treatdForm">
-            <result name="success">/user/treatdForm.jsp</result>
+            <result name="success">/views/user/treatdForm.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="deldescriptForm" class="com.sdl.action.UserAction" method="deldescriptForm">

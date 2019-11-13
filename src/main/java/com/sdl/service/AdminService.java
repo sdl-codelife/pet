@@ -6,10 +6,15 @@ import java.util.List;
 
 public interface AdminService {
     public User findUser(String userName,String userPassword);
-    public UserInfo findUserInfo(int userId);
-    public boolean updateUserInfo(String userSex,String userTel,String userQQ,String userNote,int userId);
-    public boolean updateUserPassword(int userId,String userName,String userPassword);
+
+    UserInfo findUserInfo(int userId);
+
+    public int updateUserInfo(UserInfo userInfo);
+
+    public int updateUserPassword(User user);
+
     public List<SUserInfo> findAllUserInfo(String userType);
+
     public boolean delUser(int userId);
 
     public boolean addUser(User user);

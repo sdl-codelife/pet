@@ -21,23 +21,18 @@ public interface AdminDao {
     public UserInfo findUserInfo(int userId);
 
     /**
-     * 根据userId修改用户信息
-     * @param userSex
-     * @param userTel
-     * @param userQQ
-     * @param userNote
-     * @param userId
+     * 根据userInfo.userId修改用户信息
+     * @param userInfo
      * @return
      */
-    public boolean updateUserInfo(String userSex,String userTel,String userQQ,String userNote,int userId);
+    public int updateUserInfo(UserInfo userInfo);
 
     /**
      * 更改密码
-     * @param userId
-     * @param userPassword
+     * @param user
      * @return
      */
-    public boolean updateUserPassword(int userId,String userName,String userPassword);
+    public int updateUserPassword(User user);
 
     /**
      * 查找某类型的所有用户信息

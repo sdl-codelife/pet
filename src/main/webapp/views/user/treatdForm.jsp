@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<%@ page import="com.sdl.util.RadomNum" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
@@ -29,7 +30,7 @@
         <form style="width:80%;" class="layui-form" action="treatdForm.action?description.userId=${description.userId}"
               method="post">
             <div class="layui-form-item">
-                <label class="layui-form-label">宠物名：</label>
+                <label class="layui-form-label">选择宠物名：</label>
                 <div class="layui-inline">
                     <div id="demo1" class="xm-select-demo"></div>
                 </div>
@@ -40,27 +41,34 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">单号:</label>
                 <div class="layui-input-block">
-                    <input type="text" name="description.dId" required lay-verify="required"
-                           autocomplete="off" class="layui-input ">
+                    <input type="text" required lay-verify="required"
+                           autocomplete="off" class="layui-input " value=${description.dId}>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">时间:</label>
                 <div class="layui-input-block">
-                    <input type="text" name="description.date" required lay-verify="required"
-                           autocomplete="off" class="layui-input ">
+                    <input type="text" required lay-verify="required"
+                           autocomplete="off" class="layui-input " value=${description.date}>
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">宠物姓名：</label>
+                <div class="layui-input-block">
+                    <input type="text" required lay-verify="required"
+                           autocomplete="off" class="layui-input " value=${description.petName}>
                 </div>
             </div>
             <div class="layui-form-item layui-form-text">
                 <label class="layui-form-label">病情描述：</label>
                 <div class="layui-input-block">
-                    <textarea id="userInfos.userNote" name="userInfo.userNote" class="layui-textarea"></textarea>
+                    <textarea id="description.description" class="layui-textarea"></textarea>
                 </div>
             </div>
             <div class="layui-form-item layui-form-text">
                 <label class="layui-form-label">诊断结果：</label>
                 <div class="layui-input-block">
-                    <textarea id="userInfo.userNote" name="userInfo.userNote" class="layui-textarea"></textarea>
+                    <textarea id="description.result" class="layui-textarea"></textarea>
                 </div>
             </div>
 
@@ -69,6 +77,8 @@
 </div>
 <script src="static/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script src="static/xm-select.js" type="text/javascript" charset="utf-8"></script>
+<script>document.getElementById("description.description").value = "${description.description}"</script>
+<script>document.getElementById("description.result").value = "${description.result}"</script>
 <script>
     //Demo
     layui.use(['form', 'element'], function () {
@@ -76,7 +86,6 @@
         var element = layui.element();
         form.render();
         //监听信息提交
-
     });
 </script>
 <script>
@@ -86,6 +95,7 @@
         radio: true,
         style: {
             width: '200px',
+
         },
         name: 'pet.petId',
         data: ${SelectPetlist}

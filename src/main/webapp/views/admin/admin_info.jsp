@@ -27,17 +27,20 @@
     </ul>
     <div class="layui-tab-content">
         <div class="layui-tab-item layui-show">
-            <form class="layui-form" action="updateUserInfo.action?userId=${userId}" method="post" style="width: 90%;padding-top: 20px;">
+            <form class="layui-form" action="updateUserInfo.action?userInfo.userId=${userInfo.userId}" method="post"
+                  style="width: 90%;padding-top: 20px;">
                 <div class="layui-form-item">
                     <label class="layui-form-label">ID：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="userId" disabled autocomplete="off" class="layui-input layui-disabled" value="${userId}">
+                        <input type="text" name="userInfo.userId" disabled autocomplete="off"
+                               class="layui-input layui-disabled" value=${userInfo.userId}>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户名：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="userName" required   autocomplete="off" class="layui-input layui-disabled" value="${userName}">
+                        <input type="text" name="userInfo.userName" required autocomplete="off"
+                               class="layui-input layui-disabled" value=${userInfo.userName}>
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -51,6 +54,12 @@
                     <c:if test="${userInfo.userSex=='男'}">
                         <div class="layui-input-block">
                             <input type="radio" name="userInfo.userSex" value="男" title="男"  checked="">
+                            <input type="radio" name="userInfo.userSex" value="女" title="女">
+                        </div>
+                    </c:if>
+                    <c:if test="${userInfo.userSex==null}">
+                        <div class="layui-input-block">
+                            <input type="radio" name="userInfo.userSex" value="男" title="男">
                             <input type="radio" name="userInfo.userSex" value="女" title="女">
                         </div>
                     </c:if>
@@ -81,11 +90,13 @@
             </form>
         </div>
         <div class="layui-tab-item">
-            <form class="layui-form" action="updateUserPassword.action?userId=${userId}" method="post" v style="width: 90%;padding-top: 20px;">
+            <form class="layui-form" action="updateUserPassword.action?user.userId=${userInfo.userId}" method="post"
+                  style="width: 90%;padding-top: 20px;">
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户名：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="user.userName" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input" value=${userName}>
+                        <input type="text" name="user.userName" required lay-verify="required" placeholder="请输入用户名"
+                               autocomplete="off" class="layui-input" value=${userInfo.userName}>
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -120,6 +131,12 @@
         //监听信息提交
 
     });
+</script>
+<script type="text/javascript">
+    var message = "${requestScope.message}";
+    if (message != "") {
+        alert(message);
+    }
 </script>
 </body>
 </html>

@@ -6,10 +6,41 @@ public class UserInfo {
     String userTel;
     String userQQ;
     String userNote;
+    int userId;
+    String userName;//暂存
 
-    public UserInfo(){
-
+    public String getUserName() {
+        return userName;
     }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public UserInfo() {
+    }
+
+    public UserInfo(Integer infoId, String userSex, String userTel, String userQQ, String userNote, int userId) {
+        this.infoId = infoId;
+        this.userSex = userSex;
+        this.userTel = userTel;
+        this.userQQ = userQQ;
+        this.userNote = userNote;
+        this.userId = userId;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "infoId=" + infoId +
+                ", userSex='" + userSex + '\'' +
+                ", userTel='" + userTel + '\'' +
+                ", userQQ='" + userQQ + '\'' +
+                ", userNote='" + userNote + '\'' +
+                ", userId=" + userId +
+                '}';
+    }
+
     public Integer getInfoId() {
         return infoId;
     }
@@ -50,22 +81,11 @@ public class UserInfo {
         this.userNote = userNote;
     }
 
-    public UserInfo(Integer infoId, String userSex, String userTel, String userQQ, String userNote) {
-        this.infoId = infoId;
-        this.userSex = userSex;
-        this.userTel = userTel;
-        this.userQQ = userQQ;
-        this.userNote = userNote;
+    public int getUserId() {
+        return userId;
     }
 
-    @Override
-    public String toString() {
-        return "UserInfo{" +
-                "infoId=" + infoId +
-                ", userSex='" + userSex + '\'' +
-                ", userTel='" + userTel + '\'' +
-                ", userQQ='" + userQQ + '\'' +
-                ", userNote='" + userNote + '\'' +
-                '}';
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

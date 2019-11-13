@@ -17,6 +17,7 @@ public class AdminDaoImpl implements AdminDao {
     PreparedStatement preparedStatement = null;
     ResultSet rs = null;
     boolean a;
+    int b;
     @Override
     public User findUser(String userName, String userPassWord) {
         try {
@@ -58,7 +59,7 @@ public class AdminDaoImpl implements AdminDao {
                 String userTel = rs.getString("usertel");
                 String userQQ = rs.getString("userqq");
                 String userNote = rs.getString("usernote");
-                UserInfo userInfo = new UserInfo(infoId,userSex,userTel,userQQ,userNote);
+                UserInfo userInfo = new UserInfo(infoId, userSex, userTel, userQQ, userNote, userId);
                 return userInfo;
             }
         } catch (Exception e) {
@@ -70,47 +71,45 @@ public class AdminDaoImpl implements AdminDao {
     }
 
     @Override
-    public boolean updateUserInfo(String userSex, String userTel, String userQQ, String userNote, int userId) {
+    public int updateUserInfo(UserInfo userInfo) {
         try {
             connection = DBUtil.getConnection();
             String sql = "update t_userinfo set usersex = ?,usertel = ?,userqq = ?,usernote = ? where userid = ? ";
             System.out.println(sql);
-            System.out.println(userId);
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, userSex);
-            preparedStatement.setString(2, userTel);
-            preparedStatement.setString(3, userQQ);
-            preparedStatement.setString(4, userNote);
-            preparedStatement.setInt(5, userId);
-            a = preparedStatement.execute();
-
+            preparedStatement.setString(1, userInfo.getUserSex());
+            preparedStatement.setString(2, userInfo.getUserTel());
+            preparedStatement.setString(3, userInfo.getUserQQ());
+            preparedStatement.setString(4, userInfo.getUserNote());
+            preparedStatement.setInt(5, userInfo.getUserId());
+            b = preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
             DBUtil.close(rs,preparedStatement,connection);
         }
-        return a;
+        return b;
     }
 
     @Override
-    public boolean updateUserPassword(int userId,String userName,String userPassword) {
+    public int updateUserPassword(User user) {
         try {
             connection = DBUtil.getConnection();
             String sql = "update t_user set username = ?,userpassword = ? where userid = ? ";
             System.out.println(sql);
-            System.out.println(userId);
+            System.out.println(user.getUserName());
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, userName);
-            preparedStatement.setString(2, userPassword);
-            preparedStatement.setInt(3, userId);
-            a = preparedStatement.execute();
+            preparedStatement.setString(1, user.getUserName());
+            preparedStatement.setString(2, user.getUserPassword());
+            preparedStatement.setInt(3, user.getUserId());
+            b = preparedStatement.executeUpdate();
 
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
             DBUtil.close(rs,preparedStatement,connection);
         }
-        return a;
+        return b;
     }
 
     @Override
