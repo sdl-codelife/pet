@@ -109,7 +109,7 @@
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="treated" class="com.sdl.action.DoctorAction" method="treated">
-            <result name="success">/views/doctor/treated.jsp</result>
+            <result name="success">/success.jsp</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
     </package>

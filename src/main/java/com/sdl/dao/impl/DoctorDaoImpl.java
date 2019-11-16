@@ -26,7 +26,7 @@ public class DoctorDaoImpl implements DoctorDao {
             ps = conn.prepareStatement(sql);
             ps.setInt(1, resoved);
             rs = ps.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 int dId = rs.getInt("did");
                 String date = rs.getString("date");
                 String petName = rs.getString("petname");

@@ -36,7 +36,7 @@
                 <button class="layui-btn layui-btn-normal" lay-submit="search">搜索以提交诊断</button>
             </div>
         </form>
-        <form action="tread.action" method="post">
+        <form action="treated.action" method="post">
             <div class="layui-tab-item layui-show">
                 <div class="layui-form-item">
                     <label class="layui-form-label">单号:</label>
@@ -68,7 +68,7 @@
                 <div class="layui-form-item layui-form-text">
                     <label class="layui-form-label">诊断结果：</label>
                     <div class="layui-input-block">
-                        <textarea id="userInfo.userNote" name="userInfo.userNote" class="layui-textarea"></textarea>
+                        <textarea name="description.result" class="layui-textarea"></textarea>
                     </div>
                 </div>
                 <div class="layui-form-item">

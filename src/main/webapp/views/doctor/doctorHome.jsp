@@ -43,6 +43,8 @@ To change this template use File | Settings | File Templates.
                             class="l-line"></span>已挂号列表</a></dd>
                     <dd><a href="totreated.action" target="iframe"><span
                             class="l-line"></span>开具诊断</a></dd>
+                    <dd><a href="totreated.action" target="iframe"><span
+                            class="l-line"></span>诊断完成</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item">
