@@ -34,29 +34,20 @@ To change this template use File | Settings | File Templates.
         <div class="m-logo">
         </div>
         <ul class="layui-nav layui-nav-tree" lay-filter="leftNav">
+
             <li class="layui-nav-item">
-                <a href="javascript:;"><i class="iconfont">&#xe608;</i>宠物管理</a>
+                <a href="javascript:;"><i class="iconfont">&#xe608;</i>诊断管理</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="toaddPet.action?user.userId=${user.userId}" target="iframe"><span
-                            class="l-line"></span>添加我的宠物</a></dd>
-                    <dd><a href="petList.action?pet.userId=${user.userId}&pageUtil.pageNo=1" target="iframe"><span
-                            class="l-line"></span>查看我的宠物</a></dd>
-                </dl>
-            </li>
-            <li class="layui-nav-item">
-                <a href="javascript:;"><i class="iconfont">&#xe608;</i>就诊管理</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="todescriptForm.action?pet.userId=${user.userId}" target="iframe"><span
-                            class="l-line"></span>挂号</a></dd>
-                    <dd><a href="todescripted.action?description.userId=${user.userId}&pageUtil.pageNo=1"
+                    <dd><a href="getDescriptions.action?description.resoved=0&pageUtil.pageNo=1"
                            target="iframe"><span
-                            class="l-line"></span>已挂号</a></dd>
-                    <dd><a href="totreatdForm.action?description.userId=${user.userId}" target="iframe"><span
-                            class="l-line"></span>查看诊断</a></dd>
+                            class="l-line"></span>已挂号列表</a></dd>
+                    <dd><a href="totreated.action" target="iframe"><span
+                            class="l-line"></span>开具诊断</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item">
-                <a href="userinfo.action?userId=${user.userId}&userName=${user.userName}" target="iframe"><i
+                <a href="userinfo.action?userInfo.userId=${user.userId}&userInfo.userName=${user.userName}"
+                   target="iframe"><i
                         class="iconfont">&#xe606;</i>个人信息</a>
             </li>
 
@@ -91,7 +82,8 @@ To change this template use File | Settings | File Templates.
                     <div class="layui-tab-item layui-show" style="background: #f5f5f5;">
                         <!--1-->
 
-                        <iframe src="userinfo.action?userId=${user.userId}&userName=${user.userName}" width="100%"
+                        <iframe src="userinfo.action?userInfo.userId=${user.userId}&userInfo.userName=${user.userName}"
+                                width="100%"
                                 height="100%" name="iframe" scrolling="auto" class="iframe" framborder="0"></iframe>
                         <!--1end-->
                     </div>

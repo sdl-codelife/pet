@@ -95,4 +95,22 @@
             <result name="fail">/MyJsp.jsp</result>
         </action>
     </package>
+    <package name="Doctor" extends="struts-default">
+        <action name="getDescriptions" class="com.sdl.action.DoctorAction" method="getDescriptions">
+            <result name="success">/views/doctor/description.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
+        <action name="totreated" class="com.sdl.action.DoctorAction" method="totreated">
+            <result name="success">/views/doctor/treated.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
+        <action name="seeDescription" class="com.sdl.action.DoctorAction" method="seeDescription">
+            <result type="chain" name="success">totreated</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
+        <action name="treated" class="com.sdl.action.DoctorAction" method="treated">
+            <result name="success">/views/doctor/treated.jsp</result>
+            <result name="fail">/MyJsp.jsp</result>
+        </action>
+    </package>
 </struts>

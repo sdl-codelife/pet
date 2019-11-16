@@ -18,7 +18,6 @@ To change this template use File | Settings | File Templates.
 <head>
     <base href="<%=basePath%>">
     <meta charset="UTF-8">
-    0
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
