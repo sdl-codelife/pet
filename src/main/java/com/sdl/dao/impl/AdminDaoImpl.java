@@ -145,24 +145,24 @@ public class AdminDaoImpl implements AdminDao {
     }
 
     @Override
-    public boolean delUser(int userId) {
+    public int delUser(int userId) {
         try {
             connection = DBUtil.getConnection();
             String sql = "DELETE from t_user WHERE userid = ?";
             System.out.println(sql);
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, userId);
-            a = preparedStatement.execute();
+            b = preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
             DBUtil.close(rs,preparedStatement,connection);
         }
-        return a;
+        return b;
     }
 
     @Override
-    public boolean addUser(User user) {
+    public int addUser(User user) {
         try {
             connection = DBUtil.getConnection();
             String sql = "INSERT t_user (userid,usertype,username,userpassword) VALUES(?,?,?,?)";
@@ -172,17 +172,17 @@ public class AdminDaoImpl implements AdminDao {
             preparedStatement.setString(2, user.getUserType());
             preparedStatement.setString(3, user.getUserName());
             preparedStatement.setString(4, user.getUserPassword());
-            a = preparedStatement.execute();
+            b = preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             DBUtil.close(rs, preparedStatement, connection);
         }
-        return a;
+        return b;
     }
 
     @Override
-    public boolean addUserInfo(int userId, UserInfo userInfo) {
+    public int addUserInfo(int userId, UserInfo userInfo) {
         try {
             connection = DBUtil.getConnection();
             String sql = "INSERT t_userinfo (usersex,usertel,userqq,usernote,userid) VALUES(?,?,?,?,?)";
@@ -193,13 +193,13 @@ public class AdminDaoImpl implements AdminDao {
             preparedStatement.setString(3, userInfo.getUserQQ());
             preparedStatement.setString(4, userInfo.getUserNote());
             preparedStatement.setInt(5, userId);
-            a = preparedStatement.execute();
+            b = preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             DBUtil.close(rs, preparedStatement, connection);
         }
-        return a;
+        return b;
     }
 }
 

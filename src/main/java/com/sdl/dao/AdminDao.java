@@ -46,7 +46,7 @@ public interface AdminDao {
      * @param userId
      * @return
      */
-    public boolean delUser(int userId);
+    public int delUser(int userId);
 
     /**
      * 添加用户
@@ -54,7 +54,7 @@ public interface AdminDao {
      * @param user
      * @return
      */
-    public boolean addUser(User user);
+    public int addUser(User user);
 
     /**
      * 根据用户id添加用户信息
@@ -62,5 +62,5 @@ public interface AdminDao {
      * @param userInfo
      * @return
      */
-    public boolean addUserInfo(int userId, UserInfo userInfo);
+    public int addUserInfo(int userId, UserInfo userInfo);
 }

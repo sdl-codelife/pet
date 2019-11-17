@@ -33,14 +33,14 @@
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="delUser" class="com.sdl.action.AdminAction" method="delUser">
-            <result name="success">/views/admin/userlist.jsp</result>
+            <result type="chain" name="success">userlist</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
         <action name="toaddUser" class="com.sdl.action.AdminAction" method="toaddUser">
             <result name="success">/views/admin/addUser.jsp</result>
         </action>
         <action name="addUser" class="com.sdl.action.AdminAction" method="addUser">
-            <result name="success">/views/admin/userlist.jsp</result>
+            <result type="chain" name="success">userlist</result>
             <result name="fail">/MyJsp.jsp</result>
         </action>
     </package>

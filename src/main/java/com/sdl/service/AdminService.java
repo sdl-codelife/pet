@@ -15,9 +15,9 @@ public interface AdminService {
 
     public List<SUserInfo> findAllUserInfo(String userType);
 
-    public boolean delUser(int userId);
+    public int delUser(int userId);
 
-    public boolean addUser(User user);
+    public int addUser(User user);
 
-    public boolean addUserInfo(int userId, UserInfo userInfo);
+    public int addUserInfo(int userId, UserInfo userInfo);
 }

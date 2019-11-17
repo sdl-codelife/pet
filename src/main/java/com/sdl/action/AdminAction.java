@@ -105,6 +105,7 @@ public class AdminAction extends ActionSupport {
         String name = userInfo.getUserName();
         userInfo.setUserId(userInfo.getUserId());
         int flag = adminService.updateUserInfo(userInfo);
+        System.out.println(flag + "sdsdlsdlsldsldl");
         userInfo.setUserName(name);//用户名写入
         //userInfo = adminService.findUserInfo(userId);
         System.out.println(userInfo);
@@ -148,19 +149,23 @@ public class AdminAction extends ActionSupport {
     //    查看某类型的全部用户
     public String userlist() {
         AdminService adminService = new AdminServiceImpl();
+        System.out.println(pageUtil.getPageNo() + "fjdfjfjjfjjjjjj");
         infoList = pageUtil.setList(adminService.findAllUserInfo(user.getUserType()), pageUtil.getPageNo());
-        System.out.println(pageUtil.getPageNo());
-        System.out.println(infoList);
-        System.out.println(infoList.size());
+
         return "success";
     }
 
     //    根据id删除用户
     public String delUser() {
         AdminService adminService = new AdminServiceImpl();
-        adminService.delUser(user.getUserId());
-        infoList = pageUtil.setList(adminService.findAllUserInfo(user.getUserType()), pageUtil.getPageNo());
-        return "success";
+        int flag = adminService.delUser(user.getUserId());
+        if (flag != 0) {
+            ActionContext.getContext().put("message", "删除成功");
+            return "success";
+        } else {
+            ActionContext.getContext().put("message", "删除失败");
+            return "fail";
+        }
     }
 
     //    添加用户
@@ -169,9 +174,15 @@ public class AdminAction extends ActionSupport {
         System.out.println(user);
         System.out.println(userInfo);
         adminService.addUser(user);
-        adminService.addUserInfo(user.getUserId(), userInfo);
+        int flag = adminService.addUserInfo(user.getUserId(), userInfo);
         System.out.println(user.getUserType() + "啦啦啦啦啦啦啦啦");
-        return "success";
+        if (flag != 0) {
+            ActionContext.getContext().put("message", "添加成功");
+            return "success";
+        } else {
+            ActionContext.getContext().put("message", "添加失败");
+            return "fail";
+        }
 
     }
 

@@ -40,17 +40,17 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public boolean delUser(int userId) {
+    public int delUser(int userId) {
         return adminDao.delUser(userId);
     }
 
     @Override
-    public boolean addUser(User user) {
+    public int addUser(User user) {
         return adminDao.addUser(user);
     }
 
     @Override
-    public boolean addUserInfo(int userId, UserInfo userInfo) {
+    public int addUserInfo(int userId, UserInfo userInfo) {
         return adminDao.addUserInfo(userId, userInfo);
     }
 

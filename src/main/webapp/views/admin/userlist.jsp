@@ -75,7 +75,10 @@
                         <td><c:out value="${info.userQQ}"/></td>
                     <td>
                         <div class="layui-inline">
-                            <a href="userinfo.action?userId=${info.userId}&userName=${info.userName}" class="layui-btn layui-btn-small layui-btn-normal go-btn"><i class="layui-icon">&#xe642;</i></a>
+
+                            <a href="userinfo.action?userInfo.userId=${info.userId}&userInfo.userName=${info.userName}"
+                               class="layui-btn layui-btn-small layui-btn-normal go-btn"><i
+                                    class="layui-icon">&#xe642;</i></a>
                             <a href="delUser.action?user.userId=${info.userId}&user.userType=${info.userType}&pageUtil.pageNo=1"
                                class="layui-btn layui-btn-small layui-btn-normal del-btn"><i
                                     class="layui-icon">&#xe640;</i></a>
@@ -101,6 +104,12 @@
 </div>
 <script src="static/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script src="static/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var message = "${requestScope.message}";
+    if (message != "") {
+        alert(message);
+    }
+</script>
 </body>
 
 </html>

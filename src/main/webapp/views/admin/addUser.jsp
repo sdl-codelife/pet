@@ -28,7 +28,8 @@
     </ul>
     <div class="layui-tab-content">
         <div class="layui-tab-item layui-show">
-            <form class="layui-form" action="addUser.action" method="post" style="width: 90%;padding-top: 20px;">
+            <form class="layui-form" action="addUser.action?pageUtil.pageNo=1" method="post"
+                  style="width: 90%;padding-top: 20px;">
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户类型：</label>
                     <div class="layui-input-block">
